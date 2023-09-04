@@ -1,0 +1,47 @@
+@charset "ISO-8859-1";
+
+.full_form {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+#architectForm1 {
+  margin-top: 90px;
+}
+.form {
+  background-color: #96aaec;
+  font-size: 25px;
+  padding: 50px;
+  border-radius: 13px;
+  position: relative;
+  top: 10px;
+  display: block;
+}
+input {
+  font-size: 18px;
+  padding: 5px;
+  border-radius: 7px;
+  border: none;
+  float: right;
+}
+label {
+  color: #28467f;
+}
+button,
+.logbtn {
+  float: right;
+  color: #cee1ff;
+  background-color: #28467f;
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  width: fit-content;
+  border-radius: 7px;
+  font-weight: bold;
+}
+
+.logbtn {
+  margin-top: 40px;
+  margin-right: 200px;
+  padding: 7px 75px;
+}
