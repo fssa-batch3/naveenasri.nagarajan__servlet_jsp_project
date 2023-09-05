@@ -27,7 +27,6 @@ public class ArchitectDeleteServlet extends HttpServlet {
         out.println("<html><body>");
         
         ArchitectService architectService = new ArchitectService();
-        
         try {
             boolean deleted = architectService.deleteArchitect(email);
             if (deleted) {

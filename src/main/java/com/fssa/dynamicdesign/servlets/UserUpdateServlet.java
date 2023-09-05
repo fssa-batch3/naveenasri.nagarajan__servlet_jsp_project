@@ -48,7 +48,7 @@ public class UserUpdateServlet extends HttpServlet {
 		 User user1 = new User( email,userName,password,phoneNumber,type);
 		try {
 			userService.updateUser(user1, email);
-			 out.println("<h1>Successfully Updated the user</h1>");
+			 out.println("Successfully Updated the user");
 		}catch (ServiceException e) {
 	           out.println("<h1>"+e.getMessage()+"</h1>");
 	        }

@@ -17,6 +17,7 @@
 </head>
 <body>
 	<jsp:include page="architect_header.jsp"></jsp:include>
+	
 	<div class="designs">
 		<%
 		List<Design> listDesigns = (List<Design>) request.getAttribute("designs");
