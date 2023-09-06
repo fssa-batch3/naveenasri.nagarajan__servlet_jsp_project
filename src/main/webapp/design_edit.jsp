@@ -13,6 +13,12 @@
 <body>
 <jsp:include page="architect_header.jsp"></jsp:include>
 
+	<div>
+        <% String message = (String) request.getAttribute("message"); %>
+        <% if (message != null) { %>
+            <p><%= message %></p>
+        <% } %>
+    </div>
     <form action="DesignEditServlet" method="post" id="form2"
 				class="onlyreg">
 		 <label for="designId">Design Id:</label>
@@ -42,11 +48,6 @@
     </form>
     
      
-  	<div>
-        <% String message = (String) request.getAttribute("message"); %>
-        <% if (message != null) { %>
-            <p><%= message %></p>
-        <% } %>
-    </div>
+  
 </body>
 </html>

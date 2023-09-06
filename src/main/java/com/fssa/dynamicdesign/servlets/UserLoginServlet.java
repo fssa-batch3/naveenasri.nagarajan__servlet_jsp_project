@@ -42,7 +42,6 @@ public class UserLoginServlet extends HttpServlet {
 			// response.sendRedirect("login.html");	
 		}
 		else {
-			out.println("Email and password is valid");
 			 UserService userService = new UserService();
 			try {
 	            // Check if the user login is successful using the service method
@@ -58,6 +57,7 @@ public class UserLoginServlet extends HttpServlet {
 	            }
 
 	        } catch (ServiceException e) {
+	            //response.sendRedirect("user_login.jsp?error="+e.getMessage());
 	            out.println("Error: " + e.getMessage());
 	        }
 		}

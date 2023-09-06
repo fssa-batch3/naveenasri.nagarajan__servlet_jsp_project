@@ -12,6 +12,19 @@
 
     <section class="all-form">
         <form action="architect_register" method="post" id="architectForm1">
+        <%
+        String errorMessage = request.getParameter("error");
+				if (errorMessage != null) {
+				%>
+
+				<div class="styledbutton">
+					<%=errorMessage%>
+					<!-- this will change based on invalid field entered -->
+				</div>
+				<br /> <br />
+				<%
+				}
+				%>
             <div class="full_form">
                 <div class="form">
                     <h2>personal information</h2>

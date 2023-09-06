@@ -50,7 +50,11 @@ public class ArchitectRegisterServlet extends HttpServlet {
 			out.println("<h1>Successfully registered</h1>");
 			response.sendRedirect("architect_login.jsp");
 		} catch (ServiceException e) {
-			out.println("<h1>" + e.getMessage() + "</h1>");
+			// out.println("<h1>" + e.getMessage() + "</h1>");
+			String msg = e.getMessage();
+			String[] error = msg.split(":");
+			response.sendRedirect("architect_register.jsp?error="+error[1]);
+			out.print(e.getMessage());
 		}
 	}
 }

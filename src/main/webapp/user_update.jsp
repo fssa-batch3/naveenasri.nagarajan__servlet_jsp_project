@@ -19,7 +19,7 @@
 
 	<div class="main-container">
 		<div>
-
+			<!-- update message -->
 			<%
 			String email = (String) request.getParameter("email");
 
@@ -33,8 +33,22 @@
 			}
 			%>
 
-			<form action="UserUpdateServlet" method="post" id="form2"
-				class="onlyreg">
+			<form action="UserUpdateServlet?email=<%=email%>" method="post"
+				id="form2" class="onlyreg">
+
+				<!-- error message pop up  -->
+				<%
+				String errorMessage = request.getParameter("error");
+				if (errorMessage != null) {
+				%>
+				<div class="styledbutton">
+					<%=errorMessage%>
+				</div>
+				<br /> <br />
+				<%
+				}
+				%>
+				
 				<label>email :</label> <input type="email" name="email"
 					placeholder="Enter email" value="<%=email%>" /> <br /> <br /> <label>User
 					Name :</label><input name="name" placeholder="enter your name"

@@ -40,7 +40,7 @@ public class UserDeleteServlet extends HttpServlet {
                 out.println("<h1>Failed to delete account. Invalid email or password.</h1>");
             }
         } catch (ServiceException e) {
-            out.println("<h1>Error: " + e.getMessage() + "</h1>");
+            response.sendRedirect("user_delete.jsp?error="+e.getMessage());
         }
         
         out.println("</body></html>");

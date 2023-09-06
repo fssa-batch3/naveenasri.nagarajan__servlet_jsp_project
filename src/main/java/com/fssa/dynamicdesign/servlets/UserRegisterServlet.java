@@ -35,7 +35,13 @@ public class UserRegisterServlet extends HttpServlet {
             out.println("<h1>Successfully registered</h1>");
     		response.sendRedirect("user_login.jsp");
         } catch (ServiceException e) {
-            out.println("<h1>" + e.getMessage() + "</h1>");
+            // out.println("<h1>" + e.getMessage() + "</h1>");
+            //response.sendRedirect("user_register.jsp?error="+e.getMessage());
+        	
+        	String msg = e.getMessage();
+			String[] error = msg.split(":");
+			response.sendRedirect("user_register.jsp?error="+error[1]);
+			out.print(e.getMessage());
         }
     }
 }
