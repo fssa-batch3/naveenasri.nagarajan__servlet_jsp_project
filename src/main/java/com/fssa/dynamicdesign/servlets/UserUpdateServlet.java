@@ -49,7 +49,7 @@ public class UserUpdateServlet extends HttpServlet {
 		try {
 			userService.updateUser(user1, email);
 			// out.println("Successfully Updated the user");
-			 response.sendRedirect("user_design_list.jsp");
+			 response.sendRedirect("user_home.jsp");
 		}catch (ServiceException e) {
 	        	String msg = e.getMessage();
 				String[] error = msg.split(":");

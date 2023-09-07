@@ -55,6 +55,8 @@ public class ArchitectUpdateServlet extends HttpServlet {
 		try {
 			architectService.updateArchitect(architect, email);
 			out.println("<h1>Successfully Updated the Architect</h1>");
+       	 	response.sendRedirect("architect_home.jsp");
+
 		} catch (ServiceException e) {
 			out.println("Error: " + e.getMessage());
 			// Handle the service exception, e.g., redirect to an error page.

@@ -35,8 +35,9 @@ public class DesignEditServlet extends HttpServlet {
 
             if (updated) {
                 // Set a success message and forward back to the edit page
-                request.setAttribute("message", "Design successfully updated");
-                request.getRequestDispatcher("design_edit.jsp").forward(request, response);
+               // request.setAttribute("message", "Design successfully updated");
+             //   request.getRequestDispatcher("architectdesignlistservlet").forward(request, response);
+           	 	response.sendRedirect("architectdesignlistservlet");
             } else {
                 // Set an error message and forward back to the edit page
                 request.setAttribute("message", "Failed to update design");

@@ -34,7 +34,9 @@ public class DeleteDesignServlet extends HttpServlet {
             if (deleted) {
                 out.println("<h1>Design successfully deleted.</h1>");
                 // Design was successfully deleted
-                response.getWriter().write("Design with ID " + designId + " was deleted successfully.");
+             //   response.getWriter().write("Design with ID " + designId + " was deleted successfully.");
+           	 	response.sendRedirect("architectdesignlistservlet");
+
             } else {
                 // Design was not found or deletion failed
                 response.getWriter().write("Design with ID " + designId + " was not found or deletion failed.");
