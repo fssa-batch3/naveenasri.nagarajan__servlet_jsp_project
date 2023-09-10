@@ -22,9 +22,9 @@
 	%>
 	<form action="architect_login" method="post" id="form3" class="onlylog">
 		<label>Email:</label> <input type="email" name="email"
-			style="margin-left: 45px" id="email" placeholder="Enter email" /> <br />
+			style="margin-left: 45px" id="email" placeholder="Enter email" value="john@gmail.com" /> <br />
 		<br /> <label>Password:</label> <input placeholder="Enter password"
-			type="password" name="password" id="password" /> <br />
+			type="password" name="password" id="password" value="John@123" /> <br />
 		<br />
 		<div>
 			<button type="submit">Log in</button>

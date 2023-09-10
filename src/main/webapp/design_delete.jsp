@@ -16,7 +16,7 @@
 	<form action="deleteDesignServlet" method="post" id="form2"
 		class="onlyreg">
 		<label for="designId">Design Id:</label> <input type="number"
-			name="designId" /><br />
+			name="designId" value="59" /><br />
 		<br />
 		<div>
 		    <button class="signup" type="submit">Delete design</button>

@@ -23,6 +23,7 @@ public class CreateDesignServlet extends HttpServlet {
         String description = request.getParameter("description");
         int noOfRooms = Integer.parseInt(request.getParameter("noOfRooms"));
         int architectId = Integer.parseInt(request.getParameter("architectId"));
+        
         PrintWriter out = response.getWriter();
         DesignService designService = new DesignService();
         
