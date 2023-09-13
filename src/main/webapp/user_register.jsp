@@ -38,8 +38,8 @@
 				<br /> <label>Password :</label> <input type="password"
 					name="password" placeholder="Enter password" value="Raja@123"/> <br /> <br /> <label>Phone
 					Number :</label> <input type="number" name="phoneNumber"
-					placeholder="Enter Phone Number" value="987654321"/> <br /> <br /> <label>Type
-					:</label> <input name="type" placeholder="Enter type" value="user"/> <br /> <br />
+					placeholder="Enter Phone Number" value="987654321"/> <br /> <br /> <label style="display:none">Type
+					:</label> <input style="display:none" name="type" placeholder="Enter type" value="user"/> <br /> <br />
 
 				<div>
 					<button class="signup" type="submit">Sign up</button>

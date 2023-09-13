@@ -48,7 +48,7 @@ public class UserLoginServlet extends HttpServlet {
 					 session.setAttribute("loggedInEmail", email);
 
 					user = userService.getUserByEmail(email);
-					session.setAttribute("User", user);
+					session.setAttribute("user", user);
 
 					// Redirect to the desired page (e.g., home.html)
 					response.sendRedirect("user_home.jsp");

@@ -11,7 +11,7 @@
     </head>
 
     <body>
-        <jsp:include page="architect_header.jsp"></jsp:include>
+        <jsp:include page="header.jsp"></jsp:include>
         <!-- header is ended -->
         <div id="section1">
             <div class="section1">
