@@ -7,6 +7,10 @@
   padding: 1px 40px;
 }
 
+.hidden{
+	display:hidden;
+	
+}
 .styledbutton {
     display: inline-block;
     outline: 0;

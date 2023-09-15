@@ -3,6 +3,7 @@ package com.fssa.dynamicdesign.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -57,8 +58,16 @@ public class UserLoginServlet extends HttpServlet {
 				}
 
 			} catch (ServiceException e) {
+				String msg = e.getMessage();
+				String[] error = msg.split(":");
+				request.setAttribute("email", email);
+				request.setAttribute("password",password);
+				
+				RequestDispatcher patcher = request.getRequestDispatcher("user_login.jsp?error="+error[1]);
+				patcher.forward(request, response);
+				out.print(e.getMessage());
 				// response.sendRedirect("user_login.jsp?error="+e.getMessage());
-				out.println("Error: " + e.getMessage());
+			//	out.println("Error: " + e.getMessage());
 			}
 		}
 

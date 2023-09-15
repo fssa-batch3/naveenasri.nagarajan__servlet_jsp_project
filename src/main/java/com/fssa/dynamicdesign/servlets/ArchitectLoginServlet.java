@@ -3,6 +3,7 @@ package com.fssa.dynamicdesign.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,7 +49,17 @@ public class ArchitectLoginServlet extends HttpServlet {
                     out.println("Login failed. Please check your email and password.");
                 }
             } catch (ServiceException e) {
-                out.println("Error: " + e.getMessage());
+            	String msg = e.getMessage();
+				String[] error = msg.split(":");
+				
+				request.setAttribute("email", email);
+				request.setAttribute("password",password);
+				
+				RequestDispatcher patcher = request.getRequestDispatcher("architect_login.jsp?error="+error[1]);
+				patcher.forward(request, response);
+				out.print(e.getMessage());
+				
+             //   out.println("Error: " + e.getMessage());
             }
         }
     }

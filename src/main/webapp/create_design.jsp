@@ -11,25 +11,24 @@
 <title>Create Design</title>
 </head>
 <body>
-	<jsp:include page="architect_header.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 
 	<div class="main-container">
 		<div>
 			<form action="createDesign" method="post" id="form2" class="onlyreg">
 				<label>Name:</label> <input type="text" name="name"
-					placeholder="Enter design name" value="White Bedroom" /> <br />
-				<br /> <label>URL:</label> <input type="text" name="url"
-					placeholder="Enter design URL"
-					value="https://cdn.pixabay.com/photo/2016/03/28/09/34/bedroom-1285156_1280.jpg" />
-				<br /> <br /> <label>Price:</label> <input type="number"
-					name="price" placeholder="Enter design price" value="100.00" /> <br />
-				<br /> <label>Description:</label> <input type="text"
-					name="description" placeholder="Enter description"
-					value="Interior design is the art and science of enhancing the interior of a building to create a healthier and aesthetically" /><br />
-				<br /> <label>No of Rooms:</label> <input type="number"
-					name="noOfRooms" placeholder="Enter no of rooms" value="1" /> <br /> <br />
+					placeholder="Enter design name" value="${name}" /> <br /> <br />
+				<label>URL:</label> <input type="text" name="url"
+					placeholder="Enter design URL" value="${url}" /> <br /> <br /> <label>Price:</label>
+				<input type="number" name="price" placeholder="Enter design price"
+					value="${price}" /> <br /> <br /> <label>Description:</label> <input
+					type="text" name="description" placeholder="Enter description"
+					value="${description}" /><br /> <br /> <label>No of
+					Rooms:</label> <input type="number" name="noOfRooms"
+					placeholder="Enter no of rooms" value="${noOfRooms}" /> <br /> <br />
 				<label>Architect ID:</label> <input type="number" name="architectId"
-					placeholder="Enter architect Id" value="130"/> <br /> <br />
+					placeholder="Enter architect Id" value="${architectId}" /> <br />
+				<br />
 
 				<div>
 					<button class="signup" type="submit">Add Design</button>

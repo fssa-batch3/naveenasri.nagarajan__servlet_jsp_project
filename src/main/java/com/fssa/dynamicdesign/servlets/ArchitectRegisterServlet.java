@@ -3,6 +3,7 @@ package com.fssa.dynamicdesign.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,7 +54,24 @@ public class ArchitectRegisterServlet extends HttpServlet {
 			// out.println("<h1>" + e.getMessage() + "</h1>");
 			String msg = e.getMessage();
 			String[] error = msg.split(":");
-			response.sendRedirect("architect_register.jsp?error="+error[1]);
+			
+			request.setAttribute("profileImage",profileImage);
+			request.setAttribute("name", name);
+			request.setAttribute("gender", gender);
+			request.setAttribute("number", phoneNumber);
+			request.setAttribute("address", address);
+			request.setAttribute("coverPhoto", coverPhoto);
+			request.setAttribute("email", email);
+			request.setAttribute("password", password);
+			request.setAttribute("education", education);
+			request.setAttribute("experience", experience);
+			request.setAttribute("degreeCertificatePhoto", degreeCertificatePhoto);
+			request.setAttribute("nataCertificatePhoto", nataCertificatePhoto);
+			
+			
+			RequestDispatcher patcher = request.getRequestDispatcher("architect_register.jsp?error="+error[1]);
+			patcher.forward(request, response);
+		//	response.sendRedirect("architect_register.jsp?error="+error[1]);
 			out.print(e.getMessage());
 		}
 	}

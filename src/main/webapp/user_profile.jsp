@@ -9,16 +9,17 @@
 
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="./assets/css/user_profile.css">
 <link rel="stylesheet" href="./assets/css/universe.css" />
 <link rel="stylesheet" href="./assets/css/user_login.css">
 <link rel="stylesheet" href="./assets/css/index.css" />
 
-<title>User Update</title>
+<title>User profile</title>
+
 </head>
 
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-
 	<div class="main-container">
 		<div>
 			<!-- update message -->
@@ -33,9 +34,11 @@
 			}
 			%>
 
-			<form action="UserUpdateServlet?email=<%=email%>" method="post"
+			<form action="UserprofileServlet?email=<%=email%>" method="post"
 				id="form2" class="onlyreg">
-
+				<div class="head_div">
+					<h2 class="head" style="margin-top: 0px">User Profile</h2>
+				</div>
 				<!-- error message pop up  -->
 				<%
 				String errorMessage = request.getParameter("error");
@@ -48,23 +51,18 @@
 				<%
 				}
 				%>
-				<label>You can edit only username and password</label> <br /> <br />
-				<label>email :</label> <input type="email" name="email"
-					placeholder="Enter email" value="<%=email%>" readonly /> <br /> <br />
-				<label>User Name :</label><input name="name"
-					placeholder="enter your name" value="<%=userObj.getUsername()%>" />
-				<br /> <br /> <label class="hidden">password :</label> <input
-					class="hidden" type="password" name="password"
-					placeholder="Enter password" value="<%=userObj.getPassword()%> "
-					readonly /> <br /> <br /> <label>Phone Number :</label> <input
-					type="number" name="phoneNumber" placeholder="Enter Phone Number"
-					value="<%=userObj.getPhonenumber()%>" /> <br /> <br /> <label
-					class="hidden">Type :</label> <input name="type"
-					placeholder="Enter type" value="<%=userObj.getType()%>"
-					class="hidden" readonly /> <br /> <br />
 
-				<div>
-					<button class="signup" type="submit">Update</button>
+				<label>Email :</label> <span class="value"> <%=email%>
+				</span> <br /> <br /> <label>User Name :</label> <span class="value">
+					<%=userObj.getUsername()%>
+				</span> <br /> <br />  <label>Phone Number:</label> <span class="value">
+					<%=userObj.getPhonenumber()%>
+				</span> <br /> <br />
+
+				<div class="submit">
+					<a href="user_update.jsp?email=<%=email%>" class="edit_btn">Edit</a>
+					<a href="LogoutServlet" class="edit_btn">Logout</a> <a
+						href="user_delete.jsp?email=<%=email%>" class="edit_btn">Delete</a>
 				</div>
 			</form>
 		</div>

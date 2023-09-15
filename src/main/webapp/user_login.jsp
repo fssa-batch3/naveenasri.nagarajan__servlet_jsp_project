@@ -33,9 +33,9 @@
 		}
 		%>
 		<label>Email:</label> <input type="email" name="email"
-			style="margin-left: 45px" id="email" placeholder="Enter email" value="raja@gmail.com" /> <br />
+			style="margin-left: 45px" id="email" placeholder="Enter email" value="${email}" /> <br />
 		<br /> <label>password:</label> <input placeholder="Enter password"
-			type="password" name="password" id="password" value="Raja@123"/> <br /> <br />
+			type="password" name="password" id="password" value="${password}"/> <br /> <br />
 		<div>
 			<button type="submit">Log in</button>
 

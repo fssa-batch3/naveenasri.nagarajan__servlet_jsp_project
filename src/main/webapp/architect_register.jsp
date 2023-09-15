@@ -29,15 +29,15 @@
                 <div class="form">
                     <h2>personal information</h2>
                     <label for="image">Photo:</label>
-                    <input type="url" id="image" required name="profileImage" placeholder="Profileimage" value="https://i.pinimg.com/1200x/9a/13/46/9a134694fd9254c4bed3900b58448668.jpg"/><br /><br />
+                    <input type="url" id="image" required name="profileImage" placeholder="Profileimage" value="${profileImage}"/><br /><br />
 
                     <label>Name:</label>
-                    <input type="text" required required name="name" id="name" placeholder="enter your name" value="John"/>
+                    <input type="text" required required name="name" id="name" placeholder="enter your name" value="${name}"/>
                     <br />
                     <br />
 
                     <label>Gender:</label>
-                    <input list="Gender" type="text" required id="gender" name="gender" placeholder="Male/Female" Value="Male" />
+                    <input list="Gender" type="text" required id="gender" name="gender" placeholder="Male/Female" value="${gender}" />
                     <datalist id="Gender">
                         <option value="Male">
                         <option value="Female">
@@ -50,16 +50,16 @@
                     <label>Phone number:</label>
                     <input type="number" required name="number" pattern="[6789]{1}[0-9]{9,15}"
                         title="Phone number with 6-9 and remaing 9 digit with 0-9" id="phonenumber"
-                        placeholder="9218457240" value="8383187654" />
+                        placeholder="9218457240" value="${number}" />
                     <br />
                     <br />
 
                     <label>Address:</label>
-                    <input type="text" name="address" required id="address" value="123 main street" />
+                    <input type="text" name="address" required id="address" value="${address}" />
                     <br />
                     <br />
                     <label for="image">Cover Photo:</label>
-                    <input type="url" id="coverphoto" required name="coverPhoto" placeholder="Cover photo design" value="https://cdn.pixabay.com/photo/2016/08/26/15/06/home-1622401_1280.jpg" />
+                    <input type="url" id="coverphoto" required name="coverPhoto" placeholder="Cover photo design" value="${coverPhoto}" />
                     <br />
                     <br />
 
@@ -69,17 +69,17 @@
                     <label>Email:</label>
                     <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                         title="Make sure email should be in the correct pattern" required id="email"
-                        placeholder="abc@gmail.com" value="john@gmail.com" />
+                        placeholder="abc@gmail.com" value="${email}" />
                     <br />
                     <br />
                     <label>Password:</label>
                     <input type="password" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\S+$).{8,}$" name="password"
                         title="Must contain at least one number and one uppercase and lowercase letter,at least 8 or more characters and must not contain space "
-                        required id="password" value="John@123"/>
+                        required id="password" value="${password}"/>
                     <br />
                     <br />
                     <label>Education:</label>
-                    <input list="Education" name="education" required id="education" placeholder="Bachelor of architects" value="Bachelor of Architecture" />
+                    <input list="Education" name="education" required id="education" placeholder="Bachelor of architects" value="${education}" />
                     <datalist id="Education">
                         <option value="Bachelor of Architecture">
                         <option value="Master of Architecture">
@@ -87,15 +87,15 @@
                     <br />
                     <br />
                     <label>Experience:</label>
-                    <input type="number" required name="experience" id="experience" placeholder="2"  value="3" />
+                    <input type="number" required name="experience" id="experience" placeholder="2" value="${experience}" />
                     <br />
                     <br />
                     <label for="image">Degree certificate:</label>
-                    <input type="url" required id="document" name="degreeCertificatePhoto" placeholder="b.arch certificate" value="https://antonymwambui.files.wordpress.com/2012/06/master-of-landscape-architecture-degree.jpg" />
+                    <input type="url" required id="document" name="degreeCertificatePhoto" placeholder="b.arch certificate" value="${degreeCertificatePhoto}" />
                     <br />
                     <br />
                     <label for="image">NATA certificate:</label>
-                    <input type="url" required id="natacertificate" name="nataCertificatePhoto" placeholder="nata certificate" value="https://www.lsquarry.com.au/wp/wp-content/uploads/2017/05/NATA-Accreditation.jpg" />
+                    <input type="url" required id="natacertificate" name="nataCertificatePhoto" placeholder="nata certificate" value="${nataCertificatePhoto}" />
                     <br />
                     <br />
                     <button type="submit">Apply now / sign up

@@ -1,9 +1,9 @@
 package com.fssa.dynamicdesign.servlets;
 
 import java.io.IOException;
-
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,11 +37,19 @@ public class UserRegisterServlet extends HttpServlet {
         } catch (ServiceException e) {
             // out.println("<h1>" + e.getMessage() + "</h1>");
             //response.sendRedirect("user_register.jsp?error="+e.getMessage());
-        	
+			
         	String msg = e.getMessage();
 			String[] error = msg.split(":");
-			response.sendRedirect("user_register.jsp?error="+error[1]);
+			request.setAttribute("email", email);
+			request.setAttribute("name", userName);
+			request.setAttribute("password",password);
+			request.setAttribute("phoneNumber", phoneNumber);
+			request.setAttribute("type", type);
+			
+			RequestDispatcher patcher = request.getRequestDispatcher("user_register.jsp?error="+error[1]);
+			patcher.forward(request, response);
 			out.print(e.getMessage());
+			
         }
     }
 }

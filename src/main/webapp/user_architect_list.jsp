@@ -21,7 +21,7 @@
             for (Architect architect : listArchitects) {
         %>
         <div class="card">
-            <div class="cover-photo" style="background: url(<%= architect.getCoverPhoto() %>) no-repeat center center / cover;">
+            <div class="cover-photo" style="background: url(<%= architect.getCoverPhoto()%>) no-repeat center center / cover;">
                 <img class="profile" src="<%= architect.getProfilePhoto() %>" alt="<%= architect.getName() %>">
             </div>
             <h3 class="profile-name"><%= architect.getName() %></h3>
