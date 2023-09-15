@@ -10,7 +10,7 @@
 <title>Delete Architect</title>
 </head>
 <body>
-	<jsp:include page="architect_header.jsp" />
+	<jsp:include page="header.jsp" />
 
 	<h1>Delete Architect Account</h1>
 

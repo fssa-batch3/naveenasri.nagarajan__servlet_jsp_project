@@ -29,7 +29,7 @@
                 <pre>Experience : </pre>
                 <p class="about"><%= architect.getExperience() %></p>
             </div>
-            <a class="btn" href="#" id="detailsbtn"> More Details</a>
+			<a class="btn" href="user_architect_details.jsp?email=<%= architect.getEmail()%>" id="detailsbtn">More Details</a>
             <a class="btn" href="#" id="bookbtn">Book Now</a>
         </div>
         <%

@@ -34,7 +34,7 @@
 			}
 			%>
 
-			<form action="UserprofileServlet?email=<%=email%>" method="post"
+			<form action="UserprofileServlet?email=<%=email%>" method="Get"
 				id="form2" class="onlyreg">
 				<div class="head_div">
 					<h2 class="head" style="margin-top: 0px">User Profile</h2>

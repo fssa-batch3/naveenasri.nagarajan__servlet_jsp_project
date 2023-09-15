@@ -12,7 +12,7 @@
     <title>Architect Update</title>
 </head>
 <body>
-<jsp:include page="architect_header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 
 <section class="all-form">
     <%

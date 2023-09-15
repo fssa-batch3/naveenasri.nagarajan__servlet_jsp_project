@@ -69,7 +69,7 @@
 							<a class="a" href="ordered_design.jsp">Ordered list</a>
 							<a class="a" href="architect_about_us.jsp">About us</a>
 							<a class="a" href="architect_contact_us.jsp">Contact us</a>
-							<a class="a" href="architect_profile.jsp">
+							<a class="a" href="architect_profile.jsp?email=<%=loggedInEmail%>">
 								<img src="<%=request.getContextPath()%>/assets/image/common/profile.png" alt="profile" class="profileofuser">
 							</a>
 			<%
