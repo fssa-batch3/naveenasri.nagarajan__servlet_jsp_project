@@ -24,18 +24,18 @@
 			for (Design design : listDesigns) {
 		%>
 		<div class="card">
-			<img class="free_img" src="<%=design.getDesignUrl()%>"
+			<img class="free_img" src="<%= design.getDesignUrls().get(0) %>"
 				alt="Design Image">
 			<div class="info">
 				<h3><%=design.getDesignName()%></h3>
 				<p>
 					Price:
-					<%=design.getPrice()%></p>
+					<%= design.getPricePerSqFt() * design.getSquareFeet() %></p>
 				<p>
-					<%=design.getDescription()%>
+					<%=design.getBio()%>
 				</p>
 
-				<a href="#" class="btn">More details</a>
+				<a href="UserDesignDetailServlet?uniqueId=<%=design.getUniqueId() %>" class="btn" >More details</a>
 			</div>
 		</div>
 		<%

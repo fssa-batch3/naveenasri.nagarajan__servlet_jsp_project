@@ -65,7 +65,7 @@
 			
 			<a class="a" href="architect_home.jsp">Home</a>
 							<a class="a" href="create_design.jsp">Create Design</a>
-							<a class="a" href="my_design.jsp">Designs</a>
+							<a class="a" href="architectdesignlistservlet">Designs</a>
 							<a class="a" href="ordered_design.jsp">Ordered list</a>
 							<a class="a" href="architect_about_us.jsp">About us</a>
 							<a class="a" href="architect_contact_us.jsp">Contact us</a>

@@ -11,7 +11,7 @@
 <title>Architect Profile</title>
 <style type="text/css">
 section dev {
-padding: 0px 0px; 
+	padding: 0px 0px;
 }
 </style>
 <link rel="stylesheet" href="./assets/css/architect_profile.css">
@@ -50,13 +50,20 @@ padding: 0px 0px;
 							<h2>Personal Information</h2>
 						</div>
 						<div class="brief-info">
-							<pre>Name         : <span id="userName"><%=architect.getName()%></span></pre>
-							<pre>Gender       : <span id="userGender"><%=architect.getGender()%></span></pre>
-							<pre>Phone number : <span id="userPhoneNumber"><%=architect.getPhoneNumber()%></span></pre>
-							<pre>Address      : <span id="userAddress"><%=architect.getAddress()%></span></pre>
-							<pre>Education    : <span id="userEducation"><%=architect.getEducation()%></span></pre>
-							<pre>Experience   : <span id="userExperience"><%=architect.getExperience()%></span></pre>
-							<pre>Email        : <span id="userEmail"><%=architect.getEmail()%></span></pre>
+							<pre>Name         : <span id="userName"><%=architect.getName()%></span>
+							</pre>
+							<pre>Gender       : <span id="userGender"><%=architect.getGender()%></span>
+							</pre>
+							<pre>Phone number : <span id="userPhoneNumber"><%=architect.getPhoneNumber()%></span>
+							</pre>
+							<pre>Address      : <span id="userAddress"><%=architect.getAddress()%></span>
+							</pre>
+							<pre>Education    : <span id="userEducation"><%=architect.getEducation()%></span>
+							</pre>
+							<pre>Experience   : <span id="userExperience"><%=architect.getExperience()%></span>
+							</pre>
+							<pre>Email        : <span id="userEmail"><%=architect.getEmail()%></span>
+							</pre>
 						</div>
 					</div>
 				</div>
@@ -90,16 +97,24 @@ padding: 0px 0px;
 			<div>
 				<h2>Sample Design</h2>
 				<div id="model-designs" class="modelDesign">
-					<a href="./own_architect_design_apply_form.html"> <img
+					<a href="create_design.jsp"> <img
 						src="./assets/image/common/add.png" alt="Add Image">
 					</a>
 				</div>
 			</div>
 
-			<div class="submit">
-				<a href="architect_update.jsp?email=<%=email%>" class="edit_btn">Edit</a>
-				<a href="LogoutServlet" class="edit_btn">Logout</a> <a
-					href="architect_delete.jsp?email=<%=email%>" class="edit_btn">Delete</a>
+			<div id="threebtn" class="submit">
+				<div>
+					<a href="architect_update.jsp?email=<%=email%>" class="edit_btn">Edit</a>
+				</div>
+				<div>
+					<a href="LogoutServlet" class="edit_btn">Logout</a>
+				</div>
+				<div>
+					<a href="architect_delete.jsp?email=<%=email%>" class="edit_btn">Delete</a>
+				</div>
+
+
 			</div>
 
 		</form>

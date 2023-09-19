@@ -17,28 +17,28 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	
-	<div class="designs">
+		<div class="designs">
 		<%
 		List<Design> listDesigns = (List<Design>) request.getAttribute("designs");
 		if (listDesigns != null && !listDesigns.isEmpty()) {
 			for (Design design : listDesigns) {
 		%>
-		<div class="card">
-			<img class="free_img" src="<%=design.getDesignUrl()%>"
-				alt="Design Image">
-			<div class="info">
-				<h3><%=design.getDesignName()%></h3>
+		
+		 <div class="card">
+            <img alt="interior design" class="free_img" src="<%= design.getDesignUrls().get(0) %>">
+            <div class="info">
+                <h3><%=design.getDesignName()%></h3>
 				<p>
 					Price:
-					<%=design.getPrice()%></p>
+					<%= design.getPricePerSqFt() * design.getSquareFeet() %></p>
 				<p>
-					<%=design.getDescription()%>
+					<%=design.getBio()%>
 				</p>
-
-				<a href="#" class="btn">More details</a>
-			</div>
-		</div>
+                <a class="btn" href="ArchitectDesignDetailsServlet?uniqueId=<%=design.getUniqueId() %>">More details</a>
+                <a class="editdes" id="1">Edit</a>
+                <a class="deletedes" id="deletedes" onclick="deletedesign(1)">Delete</a>
+            </div>
+        </div>
 		<%
 		}
 		} else {
