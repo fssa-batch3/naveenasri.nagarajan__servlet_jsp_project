@@ -35,7 +35,7 @@ public class ArchitectListDesignServlet extends HttpServlet {
             // store that architect Id here architectId
             int architectId = architect.getArchitectID();
             
-            out.println("Design Lists for Architect with ID: " + architectId);
+            System.out.println("Design Lists for Architect with ID: " + architectId);
             
             // Fetch the designs for the specific architect
             List<Design> designs = designService.listDesignsByArchitectId(architectId); // Implement this method

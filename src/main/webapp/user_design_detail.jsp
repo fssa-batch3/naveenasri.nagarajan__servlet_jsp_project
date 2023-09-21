@@ -164,7 +164,7 @@
             <pre>Experience : <%= architect.getExperience()%></pre>
         </div>
         <a class="btn" href="user_architect_details.jsp?email=<%= architect.getEmail()%>" id="detailsbtn">More Details</a>
-        <a class="btn" href="#" id="bookbtn">Book Now</a>
+        <a class="btn" href="user_create_booking.jsp?architectId=<%=architect.getArchitectID() %>" id="bookbtn">Book Now</a>
     </div>
   
 </div>
@@ -182,15 +182,15 @@
         </div>
     </div>
     <div>
-        <pre>Design name : <span id="dname"><%= design.getDesignName() %></span></pre>
-        <pre>Style : <span><%= design.getStyle() %></span></pre>
-        <pre>Price of design(&#8377) : <span id="pdesign"><%= design.getPricePerSqFt() * design.getSquareFeet() %></span></pre>
-        <pre>sq/ft of the design : <span id="squarefeet"><%= design.getSquareFeet() %></span></pre>
-        <pre>Price per sq/ft : <span id="ppsquarefeet"><%= design.getPricePerSqFt() %></span></pre>
-        <pre>Category : <span><%= design.getCategory() %></span></pre>
-        <pre>Floor plan : <span><%= design.getFloorPlan() %></span></pre>
-        <pre>Time Required : <span id="dates"><%= design.getTimeRequired() %> months</span></pre>
-    </div>
+       <pre>Design name             : <span id="dname"><%=design.getDesignName()%></span></pre>
+			<pre>Style                          : <span><%=design.getStyle()%></span></pre>
+			<pre>Price of design(&#8377)     : <span id="pdesign"><%=design.getPricePerSqFt() * design.getSquareFeet()%></span></pre>
+			<pre>sq/ft of the design     : <span id="squarefeet"><%=design.getSquareFeet()%></span></pre>
+			<pre>Price per sq/ft           : <span id="ppsquarefeet"><%=design.getPricePerSqFt()%></span></pre>
+			<pre>Category                   : <span><%=design.getCategory()%></span></pre>
+			<pre>Floor plan                 : <span><%=design.getFloorPlan()%></span></pre>
+			<pre>Required Months     : <span id="dates"><%=design.getTimeRequired()%> months</span></pre>
+	</div>
 </div>
 
 <%

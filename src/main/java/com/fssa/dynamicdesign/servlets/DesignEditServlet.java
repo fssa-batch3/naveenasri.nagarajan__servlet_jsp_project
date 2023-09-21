@@ -2,6 +2,9 @@ package com.fssa.dynamicdesign.servlets;
 
 import java.io.IOException;
 
+import java.util.Arrays;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,40 +17,63 @@ import com.fssa.dynamicdesign.service.exception.ServiceException;
 
 @WebServlet("/DesignEditServlet")
 public class DesignEditServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+   
 
+	private static final long serialVersionUID = 1L;
+
+	
+	 @Override
+ 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+ 		// TODO Auto-generated method stub
+ 		doPost(req, resp);
+ 	}
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Get the form parameters
-        int designId = Integer.parseInt(request.getParameter("designId"));
-        String designName = request.getParameter("designName");
-        String designUrl = request.getParameter("designUrl");
-        double price = Double.parseDouble(request.getParameter("price"));
-        String description = request.getParameter("description");
-        int noOfRooms = Integer.parseInt(request.getParameter("noOfRooms"));
+        long uniqueId = Long.parseLong(request.getParameter("uniqueId"));
 
-        // Create a Design object with the updated information
-        Design updatedDesign = new Design(designId, designName, designUrl, price, description, noOfRooms);
+        // Retrieve form parameters
+        String designName = request.getParameter("designName");
+        System.out.println(designName);
+
+        String style = request.getParameter("style");
+        int squareFeet = Integer.parseInt(request.getParameter("sqft"));
+        double pricePerSqFt = Double.parseDouble(request.getParameter("priceppersqft"));
+        String category = request.getParameter("category");
+        String floorPlan = request.getParameter("floorPlan");
+        int timeRequired = Integer.parseInt(request.getParameter("timeRequired"));
+        String bio = request.getParameter("bio");
+        String brief = request.getParameter("brief");
+        
+        // Retrieve image URLs as an array
+        String[] imageUrlsArray = request.getParameterValues("field[]");
+        List<String> imageUrlsList = (imageUrlsArray != null) ? Arrays.asList(imageUrlsArray) : null;
+        System.out.println(imageUrlsArray);
+        
+        // Create a Design object with the updated values
+        Design updatedDesign = new Design();
+        updatedDesign.setUniqueId(uniqueId);
+        updatedDesign.setDesignName(designName);
+        updatedDesign.setStyle(style);
+        updatedDesign.setSquareFeet(squareFeet);
+        updatedDesign.setPricePerSqFt(pricePerSqFt);
+        updatedDesign.setCategory(category);
+        updatedDesign.setFloorPlan(floorPlan);
+        updatedDesign.setTimeRequired(timeRequired);
+        updatedDesign.setBio(bio);
+        updatedDesign.setBrief(brief);
+        updatedDesign.setDesignUrls(imageUrlsList);
 
         DesignService designService = new DesignService();
         try {
-            boolean updated = designService.updateDesign(updatedDesign);
-
+            boolean updated = designService.updateDesign(uniqueId, updatedDesign);
             if (updated) {
-                // Set a success message and forward back to the edit page
-               // request.setAttribute("message", "Design successfully updated");
-             //   request.getRequestDispatcher("architectdesignlistservlet").forward(request, response);
-           	 	response.sendRedirect("architectdesignlistservlet");
-            } else {
-                // Set an error message and forward back to the edit page
-                request.setAttribute("message", "Failed to update design");
-                request.getRequestDispatcher("design_edit.jsp").forward(request, response);
-            }
+                response.sendRedirect("architectdesignlistservlet"); // Redirect to the design list page after successful update
+            } 
         } catch (ServiceException e) {
-            // Handle exceptions and set an error message
-            e.printStackTrace();
-            request.setAttribute("message", "Error: " + e.getMessage());
-            request.getRequestDispatcher("design_edit.jsp").forward(request, response);
+            // Handle service exception
+            response.sendRedirect("design_edit.jsp?uniqueId=" + uniqueId + "&error=" + e.getMessage());
         }
+        
+       
     }
 }

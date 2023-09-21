@@ -1,8 +1,6 @@
 @charset "ISO-8859-1";
 /* header is started */
-#section1 {
-  background-image: url("./../assets/image/login_as_customer/home/image 1.jpg");
-}
+
 .hold {
   width: 250px;
 }

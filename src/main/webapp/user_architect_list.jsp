@@ -30,13 +30,13 @@
                 <p class="about"><%= architect.getExperience() %></p>
             </div>
 			<a class="btn" href="user_architect_details.jsp?email=<%= architect.getEmail()%>" id="detailsbtn">More Details</a>
-            <a class="btn" href="#" id="bookbtn">Book Now</a>
+            <a class="btn" href="user_create_booking.jsp?architectId=<%=architect.getArchitectID() %>" id="bookbtn">Book Now</a>
         </div>
         <%
         }
         } else {
         %>
-        <p>No Architects available.</p>
+        <h1>No Architects available.</h1>
         <%
         }
         %>

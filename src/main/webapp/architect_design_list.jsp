@@ -35,8 +35,8 @@
 					<%=design.getBio()%>
 				</p>
                 <a class="btn" href="ArchitectDesignDetailsServlet?uniqueId=<%=design.getUniqueId() %>">More details</a>
-                <a class="editdes" id="1">Edit</a>
-                <a class="deletedes" id="deletedes" onclick="deletedesign(1)">Delete</a>
+                <a class="editdes" href="design_edit.jsp?uniqueId=<%=design.getUniqueId() %>">Edit</a>
+                <a class="deletedes" id="deletedes" href="DeleteDesignServlet?uniqueId=<%=design.getUniqueId() %>">Delete</a>
             </div>
         </div>
 		<%

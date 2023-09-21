@@ -66,7 +66,7 @@
 			<a class="a" href="architect_home.jsp">Home</a>
 							<a class="a" href="create_design.jsp">Create Design</a>
 							<a class="a" href="architectdesignlistservlet">Designs</a>
-							<a class="a" href="ordered_design.jsp">Ordered list</a>
+							<a class="a" href="ArchitectOrderListServlet">Appointment list</a>
 							<a class="a" href="architect_about_us.jsp">About us</a>
 							<a class="a" href="architect_contact_us.jsp">Contact us</a>
 							<a class="a" href="architect_profile.jsp?email=<%=loggedInEmail%>">
@@ -84,11 +84,14 @@
 				Profile</a>
 				-->
 				
-				<a class="a" href="user_home.jsp">Home</a> <a class="a"
-									href="userarchitectlistservlet">Architects</a> <a class="a"
-									href="userdesignlistservlet">Designs</a> <a class="a" href="user_about_us.jsp">About
-									us</a> <a class="a" href="user_contact_us.jsp">Contact us</a> <a class="a"
-									href="user_profile.jsp?email=<%=loggedInEmail%>"> <img src="<%=request.getContextPath()%>/assets/image/common/profile.png"
+				<a class="a" href="user_home.jsp">Home</a>
+				 <a class="a" href="userarchitectlistservlet">Architects</a> 
+				 <a class="a" href="userdesignlistservlet">Designs</a>
+				   <a class="a" href="UserListBookingServlet">My Booking</a> 
+				   <a class="a" href="user_about_us.jsp">About us</a>
+				    <a class="a" href="user_contact_us.jsp">Contact us</a>
+				     <a class="a" href="user_profile.jsp?email=<%=loggedInEmail%>"> 
+				     <img src="<%=request.getContextPath()%>/assets/image/common/profile.png"
 										alt="profile" class="profileofuser">
 								</a>
 			<%

@@ -17,7 +17,21 @@
 	<%
 	String email = (String) request.getParameter("email");
 	%>
-	<form action="deleteUser" method="post" id="deleteUserForm"
+	
+	<%
+				String errorMessage = request.getParameter("error");
+				if (errorMessage != null) {
+				%>
+
+				<div class="styledbutton">
+					<%=errorMessage%>
+					<!-- this will change based on invalid field entered -->
+				</div>
+				<br /> <br />
+				<%
+				}
+				%>
+	<form action="deleteUser?email=<%=email%>" method="post" id="deleteUserForm"
 		class="onlylog">
 		<label>Email:</label> <input type="email" name="email" id="email"
 			placeholder="Enter email" required value="<%=email%>" /> <br /> <br />

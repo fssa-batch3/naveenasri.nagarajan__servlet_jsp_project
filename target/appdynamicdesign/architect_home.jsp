@@ -8,12 +8,22 @@
         <link rel="stylesheet" href="./assets/css/universe.css" />
 
         <title>Architect Home</title>
+        <style>
+#section8 {
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+	margin: 0px;
+	background-image:
+		url("<%=request.getContextPath()%>/assets/image/login_as_customer/home/image 1.jpg");
+}
+</style>
     </head>
 
     <body>
-        <jsp:include page="architect_header.jsp"></jsp:include>
+        <jsp:include page="header.jsp"></jsp:include>
         <!-- header is ended -->
-        <div id="section1">
+        <div id="section8">
             <div class="section1">
                 <div class="hold">
                     <div class="img2">Interior</div>

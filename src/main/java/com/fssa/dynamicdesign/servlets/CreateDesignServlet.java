@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,7 +28,7 @@ public class CreateDesignServlet extends HttpServlet {
         int squarefeet = Integer.parseInt(request.getParameter("sqft"));
         double priceppersqft = Double.parseDouble(request.getParameter("priceppersqft"));
         String category = request.getParameter("category");
-        String floorplan = request.getParameter("floorplan");
+        String floorplan = request.getParameter("floorPlan");
         int timerequired = Integer.parseInt(request.getParameter("timerequired"));
         String bio = request.getParameter("bio");
         String brief = request.getParameter("brief");
@@ -56,7 +57,23 @@ public class CreateDesignServlet extends HttpServlet {
             out.println("<h1>Design Created Successfully</h1>");
             response.sendRedirect("architectdesignlistservlet"); // Redirect to the design list page after successful creation
         } catch (ServiceException e) {
-            out.println("<h1>Error: " + e.getMessage() + "</h1>");
+        	String msg = e.getMessage();
+			String[] error = msg.split(":");    
+			request.setAttribute("architectId", architectId);
+			request.setAttribute("name", name);
+			request.setAttribute("style", style);
+			request.setAttribute("sqft", squarefeet);
+			request.setAttribute("priceppersqft", priceppersqft);
+			request.setAttribute("category", category);
+			request.setAttribute("floorPlan", floorplan);
+			request.setAttribute("timerequired", timerequired);
+			request.setAttribute("bio", bio);
+			request.setAttribute("brief", brief);
+			request.setAttribute("field[]", imageUrlsList);
+
+			RequestDispatcher patcher = request.getRequestDispatcher("create_design.jsp?error="+error[error.length-1]);
+			patcher.forward(request, response);
         }
+        
     }
 }

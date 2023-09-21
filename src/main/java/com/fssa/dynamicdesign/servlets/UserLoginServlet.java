@@ -31,14 +31,19 @@ public class UserLoginServlet extends HttpServlet {
 		User user = new User(email, password);
 		PrintWriter out = response.getWriter();
 		if (email == null || "".equals(email)) {
-			out.println("Invalid Email");
-			response.sendRedirect("login.jsp?errorMessage=Invalid Email");
+			String error = "check your email";
+			request.setAttribute("email", email);
+
+			RequestDispatcher patcher = request.getRequestDispatcher("user_login.jsp?error="+error);
+			patcher.forward(request, response);
 		}
 
-		else if (password == null || "".equals(password) || password.length() < 6) {
-			response.sendRedirect("login.jsp?errorMessage=Invalid Password");
+		else if (password == null || "".equals(password) || password.length() < 8) {
+			String error = "check your Password";
+			request.setAttribute("password",password);
 
-			// response.sendRedirect("login.html");
+			RequestDispatcher patcher = request.getRequestDispatcher("user_login.jsp?error="+error);
+			patcher.forward(request, response);
 		} else {
 			UserService userService = new UserService();
 			try {
@@ -54,7 +59,13 @@ public class UserLoginServlet extends HttpServlet {
 					// Redirect to the desired page (e.g., home.html)
 					response.sendRedirect("user_home.jsp");
 				} else {
-					out.println("Login failed. Please check your email and password.");
+					String error = "check your email and password.";
+					request.setAttribute("email", email);
+					request.setAttribute("password",password);
+				
+					
+					RequestDispatcher patcher = request.getRequestDispatcher("user_login.jsp?error="+error);
+					patcher.forward(request, response);
 				}
 
 			} catch (ServiceException e) {
@@ -63,9 +74,9 @@ public class UserLoginServlet extends HttpServlet {
 				request.setAttribute("email", email);
 				request.setAttribute("password",password);
 				
-				RequestDispatcher patcher = request.getRequestDispatcher("user_login.jsp?error="+error[1]);
+				RequestDispatcher patcher = request.getRequestDispatcher("user_login.jsp?error="+error[error.length-1]);
 				patcher.forward(request, response);
-				out.print(e.getMessage());
+				// out.print(e.getMessage());
 				// response.sendRedirect("user_login.jsp?error="+e.getMessage());
 			//	out.println("Error: " + e.getMessage());
 			}

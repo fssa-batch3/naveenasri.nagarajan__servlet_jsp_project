@@ -38,6 +38,19 @@ textarea {
 	height: auto;
 }
 
+select {
+	text-transform: none;
+	margin-left: 130px;
+	width: 47.5%;
+	border: green;
+	font-size: 18px;
+	height: 40px;
+}
+
+#floorPlan {
+	margin-left: 119px;
+}
+
 #onlyreg {
 	width: 548px;
 	font-size: 17px;
@@ -59,6 +72,19 @@ textarea {
 		<div>
 			<form action="createDesign" method="post" id="form2" id="onlyreg"
 				class="onlyreg">
+				<%
+				String errorMessage = request.getParameter("error");
+				if (errorMessage != null) {
+				%>
+
+				<div class="styledbutton" style="width: 443px;">
+					<%=errorMessage%>
+					<!-- this will change based on invalid field entered -->
+				</div>
+				<br /> <br />
+				<%
+				}
+				%>				
 				<label>Architect Id : *</label> <input id="small" type="number"
 					name="architectId" placeholder="Enter architectId "
 					value="${architectId}" required /> <br /> <br /> <label>Name:
@@ -71,36 +97,40 @@ textarea {
 					value="${squarefeet}" /> <br /> <br /> <label>Price per
 					sq/ft: *</label> <input type="number" id="small" name="priceppersqft"
 					required value="${priceppersqft}" /> <br /> <br /> <label
-					for="category">Category: *</label> <input list="categorys"
-					id="small" required name="category" value="${category}">
-				<datalist id="browsers">
-					<option value="Bedroom">
-					<option value="Livingroom">
-					<option value="Kitchen">
-					<option value="Bathroom">
-					<option value="others">
-				</datalist>
-				<br /> <br /> <label for="floorplan">Floor plan: *</label> <input
-					list="plans" required name="floorplan" id="small"
-					value="${floorplan}">
-				<datalist id="browsers">
-					<option value="1BHK">
-					<option value="2BHK">
-					<option value="3BHK">
-					<option value="3+BHK">
-					<option value="others">
-				</datalist>
-				<br /> <br /> <label>Required months:</label> <input type="number"
-					id="small" placeholder="3" name="timerequired"
-					value="${timerequired}" /> <br /> <br /> <label>Bio
-					about the design: *</label>
+					for="category">Category:</label> <select id="category"
+					name="category" id="small" value="${category}">
+					<option value="Bedroom">Bedroom</option>
+					<option value="Livingroom">Livingroom</option>
+					<option value="Kitchen">Kitchen</option>
+					<option value="Bathroom">Bathroom</option>
+					<option value="others">others</option>
+				</select><br />
+				<br /> <label for="floorPlan">Floor Plan:</label> <select
+					id="floorPlan" name="floorPlan" id="small" value="${floorplan}">
+					<option value="1BHK">1BHK</option>
+					<option value="2BHK">2BHK</option>
+					<option value="3BHK">3BHK</option>
+					<option value="3+BHK">3+BHK</option>
+					<option value="others">others</option>
+				</select><br />
+				<br />
+				<label>Required months:</label> <input type="number" id="small"
+					placeholder="3" name="timerequired" value="${timerequired}" /> <br />
+				<br /> <label>Bio about the design: *</label>
 				<textarea type="text" pattern="{45,180}" name="bio" value="${bio}"
 					required
 					title="bio contain more than 45 letter and less than 180 letter"
-					id="paragraph">Modern bedrooms often feature minimalistic design principles.Clutter is minimized,essential furniture and decor items are used. </textarea>
+					id="small">Interior design is the art and science of enhancing the interiors building or space to make it beautiful, and comfortable.</textarea>
 				<br /> <br /> <label>Brief about the design:* </label>
-				<textarea type="text" id="brief_paragraph" required name="brief"
-					value="${brief}"> The space is kept uncluttered and free from excessive ornamentation.</textarea>
+				<textarea type="text" id="small" required name="brief"
+					value="${brief}"> Interior design is the art and science of enhancing the interior of a building to create a more aesthetically pleasing and functional environment for its occupants. Interior designers are professionals who specialize in this field, responsible for planning, researching, coordinating, and managing interior enhancement projects. They make decisions about style, aesthetics, color schemes, furniture selection, and spatial arrangements to transform spaces into appealing and functional settings. Interior design extends to various settings, including homes, offices, restaurants, and retail spaces.
+ 
+ 
+ To become an interior designer, one typically requires a formal education in interior design or a related field and may need to obtain relevant certifications or licenses depending on their location and specialization. Interior designers work closely with clients to understand their preferences and requirements, ensuring that the final design aligns with the client's vision.
+ 
+ 
+ The field of interior design is constantly evolving, with new trends and design concepts emerging regularly. Staying updated with the latest design ideas and trends is essential for interior designers to offer innovative and stylish solutions to their clients.</textarea>
+				<br /> <br />
 				<br /> <br />
 
 				<div class="container my-4">

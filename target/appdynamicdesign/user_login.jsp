@@ -14,21 +14,28 @@
 
 <body>
 
-	<jsp:include page="header.jsp"></jsp:include>
+ 	<jsp:include page="header.jsp"></jsp:include>  
 
 
 	<h1>Login Page</h1>
-	<%
-	String errorMessage = request.getParameter("errorMessage");
-	if (errorMessage != null) {
-		out.println("<p>" + errorMessage + "</p>");
-	}
-	%>
 	<form action="login" method="post" id="form3" class="onlylog">
+	
+	<%
+		String errorMessage = request.getParameter("error");
+		if (errorMessage != null) {
+		%>
+		
+		<div class="styledbutton" id="styledbuttonlogin">
+		 <%=errorMessage%> <!-- this will change based on invalid field entered -->
+		</div>
+		 <br /> <br />
+		 <%
+		}
+		%>
 		<label>Email:</label> <input type="email" name="email"
-			style="margin-left: 45px" id="email" placeholder="Enter email" /> <br />
+			style="margin-left: 45px" id="email" placeholder="Enter email" value="${email}" /> <br />
 		<br /> <label>password:</label> <input placeholder="Enter password"
-			type="password" name="password" id="password" /> <br /> <br />
+			type="password" name="password" id="password" value="${password}"/> <br /> <br />
 		<div>
 			<button type="submit">Log in</button>
 

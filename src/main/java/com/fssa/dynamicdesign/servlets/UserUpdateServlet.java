@@ -4,6 +4,7 @@ package com.fssa.dynamicdesign.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,12 +50,13 @@ public class UserUpdateServlet extends HttpServlet {
 		try {
 			userService.updateUser(user1, email);
 			// out.println("Successfully Updated the user");
-			 response.sendRedirect("user_profile.jsp");
+			 response.sendRedirect("user_profile.jsp?email="+email);
 		}catch (ServiceException e) {
 	        	String msg = e.getMessage();
 				String[] error = msg.split(":");
-				response.sendRedirect("user_update.jsp?error="+error[1]+"&email="+email);
+				response.sendRedirect("user_update.jsp?error="+error[error.length-1]+"&email="+email);
 				out.print(e.getMessage());
+			
 	        }
 	}
 

@@ -29,9 +29,19 @@ public class ArchitectLoginServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         if (email == null || "".equals(email)) {
-            response.sendRedirect("architect_login.jsp?errorMessage=Invalid Email");
-        } else if (password == null || "".equals(password) || password.length() < 6) {
-            response.sendRedirect("architect_login.jsp?errorMessage=Invalid Password");
+			String error = "check your email";
+			request.setAttribute("email", email);
+
+			RequestDispatcher patcher = request.getRequestDispatcher("architect_login.jsp?error="+error);
+			patcher.forward(request, response);
+		}
+
+		else if (password == null || "".equals(password) || password.length() < 8) {
+			String error = "check your Password";
+			request.setAttribute("password",password);
+
+			RequestDispatcher patcher = request.getRequestDispatcher("architect_login.jsp?error="+error);
+			patcher.forward(request, response);
         } else {
             ArchitectService architectService = new ArchitectService(); // Assuming you have an ArchitectService class
             try {
@@ -46,8 +56,13 @@ public class ArchitectLoginServlet extends HttpServlet {
                     // Redirect to the desired page for architects (e.g., architect_dashboard.jsp)
                     response.sendRedirect("architect_home.jsp");
                 } else {
-                    out.println("Login failed. Please check your email and password.");
-                }
+                	String error = "check your email and password.";
+					request.setAttribute("email", email);
+					request.setAttribute("password",password);
+					
+					RequestDispatcher patcher = request.getRequestDispatcher("architect_login.jsp?error="+error);
+					patcher.forward(request, response);    
+					}
             } catch (ServiceException e) {
             	String msg = e.getMessage();
 				String[] error = msg.split(":");
@@ -55,7 +70,7 @@ public class ArchitectLoginServlet extends HttpServlet {
 				request.setAttribute("email", email);
 				request.setAttribute("password",password);
 				
-				RequestDispatcher patcher = request.getRequestDispatcher("architect_login.jsp?error="+error[1]);
+				RequestDispatcher patcher = request.getRequestDispatcher("architect_login.jsp?error="+error[error.length-1]);
 				patcher.forward(request, response);
 				out.print(e.getMessage());
 				

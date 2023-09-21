@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ page import="java.util.*"%>
+	
+	<%@page
+	import="com.fssa.dynamicdesign.service.exception.ServiceException"%>
+<%@ page import="com.fssa.dynamicdesign.service.*"%>
+<%@ page import="com.fssa.dynamicdesign.model.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,27 +35,39 @@
 	crossorigin="anonymous"></script>
 
 <style type="text/css">
+    textarea {
+        overflow: auto;
+        resize: vertical;
+        font-size: small;
+        margin-left: -7px;
+        width: 450px;
+        height: auto;
+    }
 
-textarea {
-    overflow: auto;
-    resize: vertical;
-    font-size: small;
-    margin-left: -7px;
-    width: 450px;
-    height: auto;
-}
+    select {
+        text-transform: none;
+        margin-left: 130px;
+        width: 47.5%;
+        border: green;
+        font-size: 18px;
+        height: 40px;
+    }
 
-#onlyreg {
-    width: 548px;
-    font-size: 17px;
-}
+    #floorPlan {
+        margin-left: 119px;
+    }
 
-#small {
-    font-size: 18px;
-    padding: 5px;
-    border-radius: 7px;
-    float: right;
-}
+    #onlyreg {
+        width: 548px;
+        font-size: 17px;
+    }
+
+    #small {
+        font-size: 18px;
+        padding: 5px;
+        border-radius: 7px;
+        float: right;
+    }
 </style>
 <title>Edit Design</title>
 </head>
@@ -57,65 +75,91 @@ textarea {
 <jsp:include page="header.jsp"></jsp:include>
 
 <div>
-    <% String message = (String) request.getAttribute("message"); %>
-    <% if (message != null) { %>
-        <p><%= message %></p>
-    <% } %>
+    <%
+    long uniqueId = Long.parseLong(request.getParameter("uniqueId"));
+    DesignService designService = new DesignService();
+    List<Design> listDesigns = designService.getDesignByUniqueId(uniqueId);
+    System.out.println(listDesigns);
+   
+    System.out.println(listDesigns.get(0).getDesignUrls());
+   Design design =  listDesigns.get(0);
+    %>
+
 </div>
-<form action="DesignEditServlet" method="post" id="form2" class="onlyreg">
+
+<form action="DesignEditServlet?uniqueId=<%=uniqueId%>" method="post" id="form2" class="onlyreg">
+
+<!-- error message pop up  -->
+				<%
+				String errorMessage = request.getParameter("error");
+				if (errorMessage != null) {
+				%>
+				<div class="styledbutton">
+					<%=errorMessage%>
+				</div>
+				<br /> <br />
+				<%
+				}
+				%>
+
     <label for="designName">Design Name:</label>
-    <input type="text" id="designName" name="designName" value="White Bedroom" required /><br /><br />
+    <input type="text" id="small" name="designName" value="<%= design.getDesignName() %>" required /><br /><br />
 
+    <label for="style">Style:</label>
+    <input type="text" id="small" name="style" value="<%= design.getStyle() %>" /><br /><br />
 
-  <label for="style">Style:</label>
-    <input type="text" id="style" name="style" value="Modern" /><br /><br />
+    <label for="sqft">Square Feet:</label>
+    <input type="number" id="small" name="sqft" value="<%= design.getSquareFeet()%>" required /><br /><br />
 
-   
-   
-	 <label for="sqft">Square Feet:</label>
-    <input type="number" id="sqft" name="sqft" value="1000" required /><br /><br />
-	
-   <label>Price per
-					sq/ft: *</label> <input type="number" id="small" name="priceppersqft"
-					required value="1200" />
-  
+    <label>Price per sq/ft: *</label>
+    <input type="number" id="small" name="priceppersqft" required value="<%= design.getPricePerSqFt()%>" /><br /><br />
+
     <label for="category">Category:</label>
-    <select id="category" name="category">
-        <option value="Bedroom">Bedroom</option>
-        <option value="Living Room">Living Room</option>
-        <option value="Kitchen">Kitchen</option>
-        <option value="Bathroom">Bathroom</option>
-        <option value="Others">Others</option>
+    <select id="category" name="category" id="small">
+        <option value="Bedroom" <%= design.getCategory().equals("Bedroom") ? "selected" : "" %>>Bedroom</option>
+        <option value="Livingroom" <%= design.getCategory().equals("Livingroom") ? "selected" : "" %>>Livingroom</option>
+        <option value="Kitchen" <%= design.getCategory().equals("Kitchen") ? "selected" : "" %>>Kitchen</option>
+        <option value="Bathroom" <%= design.getCategory().equals("Bathroom") ? "selected" : "" %>>Bathroom</option>
+        <option value="others" <%= design.getCategory().equals("others") ? "selected" : "" %>>Others</option>
     </select><br /><br />
 
     <label for="floorPlan">Floor Plan:</label>
-    <select id="floorPlan" name="floorPlan">
-        <option value="1BHK">1BHK</option>
-        <option value="2BHK">2BHK</option>
-        <option value="3BHK">3BHK</option>
-        <option value="3+BHK">3+BHK</option>
-        <option value="Others">Others</option>
+    <select id="floorPlan" name="floorPlan" id="small">
+        <option value="1BHK" <%= design.getFloorPlan().equals("1BHK") ? "selected" : "" %>>1BHK</option>
+        <option value="2BHK" <%= design.getFloorPlan().equals("2BHK") ? "selected" : "" %>>2BHK</option>
+        <option value="3BHK" <%= design.getFloorPlan().equals("3BHK") ? "selected" : "" %>>3BHK</option>
+        <option value="3+BHK" <%= design.getFloorPlan().equals("3+BHK") ? "selected" : "" %>>3+BHK</option>
+        <option value="others" <%= design.getFloorPlan().equals("others") ? "selected" : "" %>>Others</option>
     </select><br /><br />
 
     <label for="timeRequired">Required months:</label>
-    <input type="number" id="timeRequired" name="timeRequired" value="3" required /><br /><br />
+    <input type="number" id="small" name="timeRequired" value="<%= design.getTimeRequired() %>" required /><br /><br />
 
     <label for="bio">Bio about the design:</label>
-    <textarea id="bio" name="bio" required>Modern bedrooms often feature minimalistic design principles. Clutter is minimized, essential furniture and decor items are used.</textarea><br /><br />
+    <textarea id="small" name="bio" required><%= design.getBio() %></textarea><br /><br /><br /><br />
 
     <label for="brief">Brief about the design:</label>
-    <textarea id="brief" name="brief" required>The space is kept uncluttered and free from excessive ornamentation.</textarea><br /><br />
-   
+    <textarea id="small" name="brief" required><%= design.getBrief() %></textarea><br /><br /><br /><br />
+
 
     <div class="container my-4">
         <div class="card my-4 shadow">
             <div class="card-body">
+            
+            <%  List<String> designUrls = new ArrayList<>();
+            designUrls = design.getDesignUrls();
+           
+            for (String  i : designUrls){
+            %>
+            
                 <div id="dynamic-field-1" class="form-group dynamic-field">
                     <label for="field" class="font-weight-bold">Image 1 *</label>
-                    <input type="text" id="field" class="form-control" required name="field[]" />
+                    <input type="text" id="field" class="form-control" required name="field[]" value="<%=i%>" />
                     <!-- Add a hidden input field for the image value -->
                     <input type="hidden" name="imageValue[]" />
                 </div>
+                
+                <%} %>
                 <div class="clearfix mt-4">
                     <button type="button" id="add-button" class="btn btn-secondary float-left text-uppercase shadow-sm">
                         <i class="fas fa-plus fa-fw"></i> Add
@@ -130,9 +174,6 @@ textarea {
 
     <div>
         <button class="signup" type="submit">Update Design</button>
-    </div>
-    <div class="signupbtn_div">
-        <a class="signupbtn" href="design_delete.jsp">Delete Design</a>
     </div>
 </form>
 

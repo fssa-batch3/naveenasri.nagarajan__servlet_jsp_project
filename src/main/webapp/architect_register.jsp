@@ -12,7 +12,10 @@
 
     <section class="all-form">
         <form action="architect_register" method="post" id="architectForm1">
-        <%
+        
+            <div class="full_form">
+                <div class="form">
+                <%
         String errorMessage = request.getParameter("error");
 				if (errorMessage != null) {
 				%>
@@ -25,8 +28,6 @@
 				<%
 				}
 				%>
-            <div class="full_form">
-                <div class="form">
                     <h2>personal information</h2>
                     <label for="image">Photo:</label>
                     <input type="url" id="image" required name="profileImage" placeholder="Profileimage" value="${profileImage}"/><br /><br />

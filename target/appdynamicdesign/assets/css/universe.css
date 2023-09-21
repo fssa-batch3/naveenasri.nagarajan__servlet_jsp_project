@@ -7,6 +7,31 @@
   padding: 1px 40px;
 }
 
+.hidden{
+	display:hidden;
+	
+}
+.styledbutton {
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    width: 380px;
+    padding-left: 50px;
+    position: relative;
+    color: #000;
+    background: #e66060;
+    line-height: 0px;
+    border-radius: 1px;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 420px;
+    box-shadow: #28467f -2px -2px 0px 2px, #aabef7 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 0px 2px 7px;
+    transition: all 0.2s;
+}
+
+#styledbuttonlogin{
+	width:340px;
+}
 .logo {
   width: 80px;
   height: 80px;
@@ -135,9 +160,9 @@ h3 {
   transition: 0.4s;
 }
 .border:hover {
-  -webkit-box-shadow: 10px 9px 36px 0px rgba(157, 164, 176, 0.81);
-  -moz-box-shadow: 10px 9px 36px 0px rgba(157, 164, 176, 0.81);
-  box-shadow: 10px 9px 36px 0px rgba(157, 164, 176, 0.81);
+  -webkit-box-shadow: 10px 9px 36px 0px rgba(157, 164, 176, 0.30);
+  -moz-box-shadow: 10px 9px 36px 0px rgba(157, 164, 176, 0.30);
+  box-shadow: 10px 9px 36px 0px rgba(157, 164, 176, 0.30);
 }
 
 .reviewer {

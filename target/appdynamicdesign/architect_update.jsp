@@ -12,7 +12,7 @@
     <title>Architect Update</title>
 </head>
 <body>
-<jsp:include page="architect_header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 
 <section class="all-form">
     <%
@@ -31,6 +31,19 @@
     <form action="architect_update" method="post" id="architectForm1">
         <div class="full_form">
             <div class="form">
+               <%
+        String errorMessage = request.getParameter("error");
+				if (errorMessage != null) {
+				%>
+
+				<div class="styledbutton">
+					<%=errorMessage%>
+					<!-- this will change based on invalid field entered -->
+				</div>
+				<br /> <br />
+				<%
+				}
+				%>
                 <h2>Personal Information</h2>
                 <label for="profileImage">Photo:</label>
                 <input type="url" value="<%=architect.getProfilePhoto()%>" id="profileImage" required name="profileImage" placeholder="Profile Image" /><br /><br />
