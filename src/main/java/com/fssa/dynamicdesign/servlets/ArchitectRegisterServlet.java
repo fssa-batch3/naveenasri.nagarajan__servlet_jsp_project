@@ -69,7 +69,7 @@ public class ArchitectRegisterServlet extends HttpServlet {
 			request.setAttribute("nataCertificatePhoto", nataCertificatePhoto);
 			
 			
-			RequestDispatcher patcher = request.getRequestDispatcher("architect_register.jsp?error="+error[1]);
+			RequestDispatcher patcher = request.getRequestDispatcher("architect_register.jsp?error="+error[error.length-1]);
 			patcher.forward(request, response);
 		//	response.sendRedirect("architect_register.jsp?error="+error[1]);
 			out.print(e.getMessage());

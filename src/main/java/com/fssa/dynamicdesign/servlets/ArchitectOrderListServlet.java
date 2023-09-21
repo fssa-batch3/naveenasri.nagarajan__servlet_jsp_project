@@ -65,10 +65,6 @@ public class ArchitectOrderListServlet extends HttpServlet {
             	User user = userService.getUserById(booking.getUserId());
             	booking.setUser(user);
             	userBookings.add(booking);            	
-            	
-            	
-            	
-            	
             }
             
             // Set the retrieved bookings as an attribute in the request

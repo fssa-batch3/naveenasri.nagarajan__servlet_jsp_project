@@ -22,6 +22,9 @@
 		List<Design> listDesigns = (List<Design>) request.getAttribute("designs");
 		if (listDesigns != null && !listDesigns.isEmpty()) {
 			for (Design design : listDesigns) {
+			System.out.println(design.getDesignUrls());
+			System.out.println();
+		
 		%>
 		<div class="card">
 			<img class="free_img" src="<%= design.getDesignUrls().get(0) %>"

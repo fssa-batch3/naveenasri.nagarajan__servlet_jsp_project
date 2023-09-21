@@ -76,7 +76,7 @@ public class ArchitectUpdateServlet extends HttpServlet {
 			request.setAttribute("nataCertificatePhoto", nataCertificatePhoto);
 			
 			
-			RequestDispatcher patcher = request.getRequestDispatcher("architect_update.jsp?error="+error[1]);
+			RequestDispatcher patcher = request.getRequestDispatcher("architect_update.jsp?error="+error[error.length-1]);
 			patcher.forward(request, response);
 		//	response.sendRedirect("architect_register.jsp?error="+error[1]);
 			out.print(e.getMessage());			// Handle the service exception, e.g., redirect to an error page.

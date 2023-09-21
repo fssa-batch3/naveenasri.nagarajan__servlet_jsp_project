@@ -60,7 +60,8 @@
 			    }
 			} else {
 			%>
-			    <h1>No Booking available.</h1>
+			  <img alt="interior design" class="free_img" Style="width: auto;height: auto;" src="./assets/image/common/appoinments.png">
+
 			<%
 			}
 			%>

@@ -49,7 +49,7 @@
                     <br />
 
                     <label>Phone number:</label>
-                    <input type="number" required name="number" pattern="[6789]{1}[0-9]{9,15}"
+                    <input type="number" required name="number" pattern="[6789]{1}[0-9]{9}"
                         title="Phone number with 6-9 and remaing 9 digit with 0-9" id="phonenumber"
                         placeholder="9218457240" value="${number}" />
                     <br />

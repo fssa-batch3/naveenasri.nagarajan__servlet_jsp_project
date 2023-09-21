@@ -26,68 +26,133 @@
 	<div class="AboutArchitect">
 
 		<div class="photos">
-			<div class="carousel">
-				<div class="carousel-inner">
-					<%
-					int i = 1;
-					for (String url : design.getDesignUrls()) {
-					%>
-					<input class="carousel-open" type="radio" id="carousel-<%=i%>"
-						name="carousel" aria-hidden="true" hidden="" checked="checked">
-					<div class="carousel-item">
-						<img class="mainimage" id="mainimage" alt="interior design"
-							src="<%=url%>">
-					</div>
+   <div class="carousel">
+                <div class="carousel-inner">
+                    <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true"
+                        hidden="" checked="checked">
+                    <div class="carousel-item">
+                        <img class="mainimage" id="mainimage" alt="interior design"
+                            src="<%= design.getDesignUrls().get(0) %>">
+                    </div>
 
-					<%
-					i++;
-					}
-					%>
+                    <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true"
+                        hidden="">
+                    <div class="carousel-item">
+                        <img class="mainimage" id="mainimage2" alt="interior design"
+                            src="<%= design.getDesignUrls().get(1) %>">
+                    </div>
 
+                    <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true"
+                        hidden="">
+                    <div class="carousel-item">
+                        <img class="mainimage" id="mainimage3" alt="interior design"
+                            src="<%= design.getDesignUrls().get(2) %>">
+                    </div>
 
-					<%
-					int j = 1;
-					for (String url : design.getDesignUrls()) {
-						int size = design.getDesignUrls().size();
+                    <input class="carousel-open" type="radio" id="carousel-4" name="carousel" aria-hidden="true"
+                        hidden="">
+                    <div class="carousel-item">
+                        <img class="mainimage" id="mainimage4" alt="interior design"
+                            src="<%= design.getDesignUrls().get(3) %>">
+                    </div>
 
-						int previous = 1;
-						int next = 1;
+                    <input class="carousel-open" type="radio" id="carousel-5" name="carousel" aria-hidden="true"
+                        hidden="">
+                    <div class="carousel-item">
+                        <img class="mainimage" id="mainimage5" alt="interior design"
+                            src="<%= design.getDesignUrls().get(4) %>">
+                    </div>
 
-						if (j == 1) {
-							previous = size + 1;
-						}
+                    <input class="carousel-open" type="radio" id="carousel-6" name="carousel" aria-hidden="true"
+                        hidden="">
+                    <div class="carousel-item">
+                        <img class="mainimage" id="mainimage6" alt="interior design"
+                            src="<%= design.getDesignUrls().get(5)%>">
+                    </div>
 
-						if (j == size) {
-							next = 1;
-						}
-					%>
-					<label for="carousel-<%=previous%>"
-						class="carousel-control prev control-<%=j%>">&lt;</label> <label
-						for="carousel-<%=next%>"
-						class="carousel-control next control-<%=j%>">&gt;</label>
-					<%
-					j++;
-					}
-					%>
+                    <input class="carousel-open" type="radio" id="carousel-7" name="carousel" aria-hidden="true"
+                        hidden="">
+                    <div class="carousel-item">
+                        <img class="mainimage" id="mainimage7" alt="interior design"
+                            src="<%= design.getDesignUrls().get(4) %>">
+                    </div>
 
-					<ol class="carousel-indicators">
+                    <input class="carousel-open" type="radio" id="carousel-8" name="carousel" aria-hidden="true"
+                        hidden="">
+                    <div class="carousel-item">
+                        <img class="mainimage" id="mainimage8" alt="interior design"
+                            src="<%= design.getDesignUrls().get(3) %>">
+                    </div>
 
-						<%
-						for (String url : design.getDesignUrls()) {
-							System.out.println(design.getDesignUrls().size());
-							int size = design.getDesignUrls().size();
-						%>
-						<li><label
-							for="carousel-<%=design.getDesignUrls().indexOf(url) + 1%>"
-							class="carousel-bullet">&#8226;</label></li>
+                    <input class="carousel-open" type="radio" id="carousel-9" name="carousel" aria-hidden="true"
+                        hidden="">
+                    <div class="carousel-item">
+                        <img class="mainimage" id="mainimage9" alt="interior design"
+                            src="<%= design.getDesignUrls().get(2) %>">
+                    </div>
 
-						<%
-						}
-						%>
-					</ol>
+                    <input class="carousel-open" type="radio" id="carousel-10" name="carousel" aria-hidden="true"
+                        hidden="">
+                    <div class="carousel-item">
+                        <img class="mainimage" id="mainimage10" alt="interior design"
+                            src="<%= design.getDesignUrls().get(1) %>">
+                    </div>
 
-				</div>
-			</div>
+                    <label for="carousel-10" class="carousel-control prev control-1">&lt;</label>
+                    <label for="carousel-2" class="carousel-control next control-1">&gt;</label>
+                    <label for="carousel-1" class="carousel-control prev control-2">&lt;</label>
+                    <label for="carousel-3" class="carousel-control next control-2">&gt;</label>
+                    <label for="carousel-2" class="carousel-control prev control-3">&lt;</label>
+                    <label for="carousel-4" class="carousel-control next control-3">&gt;</label>
+                    <label for="carousel-3" class="carousel-control prev control-4">&lt;</label>
+                    <label for="carousel-5" class="carousel-control next control-4">&gt;</label>
+                    <label for="carousel-4" class="carousel-control prev control-5">&lt;</label>
+                    <label for="carousel-6" class="carousel-control next control-5">&gt;</label>
+                    <label for="carousel-5" class="carousel-control prev control-6">&lt;</label>
+                    <label for="carousel-7" class="carousel-control next control-6">&gt;</label>
+                    <label for="carousel-6" class="carousel-control prev control-7">&lt;</label>
+                    <label for="carousel-8" class="carousel-control next control-7">&gt;</label>
+                    <label for="carousel-7" class="carousel-control prev control-8">&lt;</label>
+                    <label for="carousel-9" class="carousel-control next control-8">&gt;</label>
+                    <label for="carousel-8" class="carousel-control prev control-9">&lt;</label>
+                    <label for="carousel-10" class="carousel-control next control-9">&gt;</label>
+                    <label for="carousel-9" class="carousel-control prev control-10">&lt;</label>
+                    <label for="carousel-1" class="carousel-control next control-10">&gt;</label>
+
+                    <ol class="carousel-indicators">
+                        <li>
+                            <label for="carousel-1" class="carousel-bullet">&#8226;</label>
+                        </li>
+                        <li>
+                            <label for="carousel-2" class="carousel-bullet">&#8226;</label>
+                        </li>
+                        <li>
+                            <label for="carousel-3" class="carousel-bullet">&#8226;</label>
+                        </li>
+                        <li>
+                            <label for="carousel-4" class="carousel-bullet">&#8226;</label>
+                        </li>
+                        <li>
+                            <label for="carousel-5" class="carousel-bullet">&#8226;</label>
+                        </li>
+                        <li>
+                            <label for="carousel-6" class="carousel-bullet">&#8226;</label>
+                        </li>
+                        <li>
+                            <label for="carousel-7" class="carousel-bullet">&#8226;</label>
+                        </li>
+                        <li>
+                            <label for="carousel-8" class="carousel-bullet">&#8226;</label>
+                        </li>
+                        <li>
+                            <label for="carousel-9" class="carousel-bullet">&#8226;</label>
+                        </li>
+                        <li>
+                            <label for="carousel-10" class="carousel-bullet">&#8226;</label>
+                        </li>
+                    </ol>
+                </div>
+            </div>
 		</div>
 
 		<div class="card">
@@ -119,15 +184,15 @@
 				<span id="brief_para"> <%=design.getBrief()%></span>
 			</div>
 		</div>
-		<div>
-			<pre>Design name : <span id="dname"><%=design.getDesignName()%></span></pre>
-			<pre>Style : <span><%=design.getStyle()%></span></pre>
-			<pre>Price of design(&#8377) : <span id="pdesign"><%=design.getPricePerSqFt() * design.getSquareFeet()%></span></pre>
-			<pre>sq/ft of the design : <span id="squarefeet"><%=design.getSquareFeet()%></span></pre>
-			<pre>Price per sq/ft : <span id="ppsquarefeet"><%=design.getPricePerSqFt()%></span></pre>
-			<pre>Category : <span><%=design.getCategory()%></span></pre>
-			<pre>Floor plan : <span><%=design.getFloorPlan()%></span></pre>
-			<pre>Time Required : <span id="dates"><%=design.getTimeRequired()%> months</span></pre>
+		<div> 
+			<pre>Design name             : <span id="dname"><%=design.getDesignName()%></span></pre>
+			<pre>Style                          : <span><%=design.getStyle()%></span></pre>
+			<pre>Price of design(&#8377)     : <span id="pdesign"><%=design.getPricePerSqFt() * design.getSquareFeet()%></span></pre>
+			<pre>sq/ft of the design     : <span id="squarefeet"><%=design.getSquareFeet()%></span></pre>
+			<pre>Price per sq/ft           : <span id="ppsquarefeet"><%=design.getPricePerSqFt()%></span></pre>
+			<pre>Category                   : <span><%=design.getCategory()%></span></pre>
+			<pre>Floor plan                 : <span><%=design.getFloorPlan()%></span></pre>
+			<pre>Required Months     : <span id="dates"><%=design.getTimeRequired()%> months</span></pre>
 		</div>
 	</div>
 

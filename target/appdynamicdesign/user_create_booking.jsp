@@ -42,9 +42,9 @@
 						value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD50suxgtUSpg_ZYR2w_gf4UyCKWLUkq9Cqw&usqp=CAU"
 						value="${DesignUrl}" /> <br />
 					<br /> <label>Expected amount:</label> <input id="amount" required
-						type="number" name="amount" value="${amount}" value="50000" /> <br />
+						type="number" name="amount" value="${amount}" min="10" max="9999999" value="50000" /> <br />
 					<br /> <label>Expected months:</label> <input id="time" required
-						type="number" name="months" value="${months}" value="12" /> <br />
+						type="number" name="months" value="${months}" min="1" max="60" value="12" /> <br />
 					<br /> <label for="textarea">Message :</label>
 					<textarea id="messagetextarea" required name="message"
 						value="${message}" rows="2" cols="40"> I like this design can you please do this same design for me 

@@ -48,8 +48,8 @@
         </div>
        <div class="both-btn">
 		    <% if (booking.getStatus().equals("Pending")) { %>
-		        <a class="verifybtn">Accepted</a>
-		        <a class="verifybtn">Rejected</a>
+		        <a class="verifybtn" href="UpdateBookingStatusServlet?bookingId=<%=booking.getBookingId()%>&newStatus=Accepted">Accepted</a>
+		        <a class="verifybtn" href="UpdateBookingStatusServlet?bookingId=<%=booking.getBookingId()%>&newStatus=Rejected">Rejected</a>
 		    <% } else { %>
 		        <a class="verifybtn"><%= booking.getStatus() %></a>
 		    <% } %>

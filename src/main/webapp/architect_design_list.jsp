@@ -43,7 +43,7 @@
 		}
 		} else {
 		%>
-		<p>No Design available.</p>
+		<img alt="interior design" class="free_img" Style="width: auto;height: auto;" src="./assets/image/common/nodesign.png">
 		<%
 		}
 		%>
