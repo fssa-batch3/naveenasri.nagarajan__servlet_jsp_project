@@ -6,13 +6,12 @@
 <title>Error Page</title>
 <link rel="stylesheet" href="./assets/css/universe.css" />
 <link rel="stylesheet" href="./assets/css/index.css" />
+
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	<h1>Error Page</h1>
-	<p>Page doesn't exist</p>
-	<p>
-		Please go to <a href="index.jsp">Index</a> page
-	</p>
+	<div>
+	<img alt="interior design" class="free_img" Style="width: auto;height: auto;" src="https://i2.wp.com/colorlib.com/wp/wp-content/uploads/sites/2/404-error-page-templates.jpg">
+   </div>
 </body>
 </html>

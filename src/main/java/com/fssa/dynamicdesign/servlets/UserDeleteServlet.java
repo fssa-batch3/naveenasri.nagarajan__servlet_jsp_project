@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.fssa.dynamicdesign.model.User;
 import com.fssa.dynamicdesign.service.UserService;
 import com.fssa.dynamicdesign.service.exception.ServiceException;
 
@@ -19,8 +20,12 @@ public class UserDeleteServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String email = request.getParameter("email");
-        
+    	
+		HttpSession session = request.getSession(false);
+		User user = (User) session.getAttribute("user");
+    	String email  = user.getEmail();
+		
+     //   String email = request.getParameter("email");        
         // Set the response content type to HTML
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -32,8 +37,10 @@ public class UserDeleteServlet extends HttpServlet {
             boolean deleted = userService.deleteUser(email);
             if (deleted) {
                 out.println("<h1>Account successfully deleted.</h1>");
-        		HttpSession session = request.getSession(false);
-    			session.removeAttribute("loggedInEmail");
+        	//	HttpSession session = request.getSession(false);
+        	//	User user = (User) session.getAttribute("user");
+        		//String email  = user.getEmail();
+    			 session.removeAttribute("user");
     			session.invalidate();
         		response.sendRedirect("index.jsp");
             } else {

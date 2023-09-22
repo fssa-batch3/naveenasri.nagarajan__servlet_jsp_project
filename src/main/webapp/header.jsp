@@ -23,9 +23,10 @@
 		<nav class="nav">
 
 			<%
+			User user = (User) session.getAttribute("user");
 			String loggedInEmail = (String) session.getAttribute("loggedInEmail");
 
-			if (loggedInEmail == null) {
+			if (loggedInEmail == null && user == null) {
 			%>
 			<div id="button">
 				<div class="dropdown">
@@ -47,7 +48,6 @@
 
 			<%
 			} else {
-			User user = (User) session.getAttribute("user");
 			if (user == null) {
 			%>
 <!--
@@ -73,7 +73,7 @@
 								<img src="<%=request.getContextPath()%>/assets/image/common/profile.png" alt="profile" class="profileofuser">
 							</a>
 			<%
-			} else {
+			} else if(loggedInEmail == null) {
 			%>
 			<!-- header is started  user.getType().equals("user") 
 			<a class="a" href="user_home.jsp">Home</a> <a class="a"
@@ -90,7 +90,7 @@
 				   <a class="a" href="UserListBookingServlet">My Booking</a> 
 				   <a class="a" href="user_about_us.jsp">About us</a>
 				    <a class="a" href="user_contact_us.jsp">Contact us</a>
-				     <a class="a" href="user_profile.jsp?email=<%=loggedInEmail%>"> 
+				     <a class="a" href="user_profile.jsp"> 
 				     <img src="<%=request.getContextPath()%>/assets/image/common/profile.png"
 										alt="profile" class="profileofuser">
 								</a>

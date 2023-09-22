@@ -25,6 +25,7 @@
 			<!-- update message -->
 			<%
 			String email = (String) request.getParameter("email");
+			User users = (User) session.getAttribute("user");
 			UserService user = new UserService();
 			User userObj = new User();
 			try {
@@ -34,7 +35,7 @@
 			}
 			%>
 
-			<form action="UserprofileServlet?email=<%=email%>" method="Get"
+			<form action="UserprofileServlet?email=<%=users.getEmail()%>" method="Get"
 				id="form2" class="onlyreg">
 				<div class="head_div">
 					<h2 class="head" style="margin-top: 0px">User Profile</h2>
@@ -52,17 +53,17 @@
 				}
 				%>
 
-				<label>Email :</label> <span class="value"> <%=email%>
+				<label>Email :</label> <span class="value"> <%=users.getEmail()%>
 				</span> <br /> <br /> <label>User Name :</label> <span class="value">
-					<%=userObj.getUsername()%>
+					<%=users.getUsername()%>
 				</span> <br /> <br />  <label>Phone Number:</label> <span class="value">
-					<%=userObj.getPhonenumber()%>
+					<%=users.getPhonenumber()%>
 				</span> <br /> <br />
 
 				<div class="submit">
 					<a href="user_update.jsp?email=<%=email%>" class="edit_btn">Edit</a>
-					<a href="LogoutServlet" class="edit_btn">Logout</a> <a
-						href="deleteUser?email=<%=email%>" class="edit_btn">Delete</a>
+					<a href="userLogoutServlet" class="edit_btn">Logout</a> <a
+						href="deleteUser" class="edit_btn">Delete</a>
 				</div>
 			</form>
 		</div>

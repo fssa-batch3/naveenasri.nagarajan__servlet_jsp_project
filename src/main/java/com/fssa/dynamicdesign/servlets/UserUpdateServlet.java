@@ -4,12 +4,12 @@ package com.fssa.dynamicdesign.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fssa.dynamicdesign.model.User;
 import com.fssa.dynamicdesign.service.UserService;
@@ -35,6 +35,7 @@ public class UserUpdateServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
 		String email = request.getParameter("email");
 		String userName = request.getParameter("name");
 		String password = request.getParameter("password");
@@ -49,6 +50,9 @@ public class UserUpdateServlet extends HttpServlet {
 		 User user1 = new User( email,userName,password,phoneNumber,type);
 		try {
 			userService.updateUser(user1, email);
+
+		User user = userService.getUserByEmail(email);
+		session.setAttribute("user", user);
 			// out.println("Successfully Updated the user");
 			 response.sendRedirect("user_profile.jsp?email="+email);
 		}catch (ServiceException e) {

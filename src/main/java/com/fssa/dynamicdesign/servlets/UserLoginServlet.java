@@ -51,11 +51,11 @@ public class UserLoginServlet extends HttpServlet {
 				if (userService.loginUser(user, email)) {
 					// If login is successful, set the email in the session
 					HttpSession session = request.getSession();
-					 session.setAttribute("loggedInEmail", email);
+				//	 session.setAttribute("loggedInEmail", email);
 
 					user = userService.getUserByEmail(email);
 					session.setAttribute("user", user);
-
+				//	String email  = user.getEmail();
 					// Redirect to the desired page (e.g., home.html)
 					response.sendRedirect("user_home.jsp");
 				} else {

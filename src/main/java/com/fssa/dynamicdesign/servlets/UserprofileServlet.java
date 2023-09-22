@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fssa.dynamicdesign.model.User;
 import com.fssa.dynamicdesign.service.UserService;
@@ -17,28 +18,29 @@ public class UserprofileServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // You can put any necessary logic here to retrieve user data based on the email parameter
-        String email = request.getParameter("email");
-
-        // For example, you can retrieve user data from a service
+    	
+    	HttpSession session = request.getSession(false);
+    	User user = (User) session.getAttribute("user");
+    	String email  = user.getEmail();
+    
         UserService userService = new UserService();
-        User user = null; // Initialize the user object
-
+       // Initialize the user object
+        User userdetails = null;
         try {
-            user = userService.getUserByEmail(email);
+        	session = request.getSession(false);
+            request.setAttribute("user", email);
+        	userdetails = userService.getUserByEmail(email);
+        		
+    			session.setAttribute("user", userdetails);
         } catch (ServiceException e) {
             // Handle the exception properly, you can log it or set an error message
             e.printStackTrace();
             request.setAttribute("error", "Error fetching user data.");
         }
 
-        // Set user data as an attribute to be used in the JSP
-        request.setAttribute("user", user);
-
-        // Forward the request to the user profile JSP
         request.getRequestDispatcher("/user_profile.jsp").forward(request, response);
     }
-
+ 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Handle any POST requests if needed

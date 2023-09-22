@@ -59,7 +59,7 @@ public class UserDesignDetailsServlet extends HttpServlet {
         }
 
         // Forward the request to the design details JSP
-        request.getRequestDispatcher("/architect_design_detail.jsp").forward(request, response);
+        request.getRequestDispatcher("/user_design_detail.jsp").forward(request, response);
     }
 
     
