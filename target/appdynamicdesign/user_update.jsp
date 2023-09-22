@@ -1,3 +1,4 @@
+<%@page import="javax.lang.model.element.ModuleElement.UsesDirective"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page
@@ -24,6 +25,7 @@
 			<!-- update message -->
 			<%
 			String email = (String) request.getParameter("email");
+			User users = (User) session.getAttribute("user");
 			UserService user = new UserService();
 			User userObj = new User();
 			try {
@@ -33,7 +35,7 @@
 			}
 			%>
 
-			<form action="UserUpdateServlet?email=<%=email%>" method="post"
+			<form action="UserUpdateServlet?email=<%=users.getEmail()%>" method="post"
 				id="form2" class="onlyreg">
 
 				<!-- error message pop up  -->
@@ -50,17 +52,17 @@
 				%>
 				<label>You can edit only username and password</label> <br /> <br />
 				<label>email :</label> <input type="email" name="email"
-					placeholder="Enter email" value="<%=email%>" readonly /> <br /> <br />
+					placeholder="Enter email" value="<%=users.getEmail()%>" readonly /> <br /> <br />
 				<label>User Name :</label><input name="name"
-					placeholder="enter your name" value="<%=userObj.getUsername()%>" />
+					placeholder="enter your name" value="<%=users.getUsername()%>" />
 				<br /> <br /> <label class="hidden">password :</label> <input
 					class="hidden" type="password" name="password"
-					placeholder="Enter password" value="<%=userObj.getPassword()%> "
+					placeholder="Enter password" value="<%=users.getPassword()%> "
 					readonly /> <br /> <br /> <label>Phone Number :</label> <input
 					type="number" name="phoneNumber" placeholder="Enter Phone Number"
-					value="<%=userObj.getPhonenumber()%>" /> <br /> <br /> <label
+					value="<%=users.getPhonenumber()%>" /> <br /> <br /> <label
 					class="hidden">Type :</label> <input name="type"
-					placeholder="Enter type" value="<%=userObj.getType()%>"
+					placeholder="Enter type" value="<%=users.getType()%>"
 					class="hidden" readonly /> <br /> <br />
 
 				<div>

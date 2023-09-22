@@ -34,6 +34,10 @@
 				height: auto;
 			}
 
+			input {
+				width: 222px;
+			}
+
 			select {
 				text-transform: none;
 				margin-left: 130px;

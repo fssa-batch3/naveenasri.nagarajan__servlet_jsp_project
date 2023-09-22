@@ -74,28 +74,28 @@
                         hidden="">
                     <div class="carousel-item">
                         <img class="mainimage" id="mainimage7" alt="interior design"
-                            src="<%= design.getDesignUrls().get(6) %>">
+                            src="<%= design.getDesignUrls().get(4) %>">
                     </div>
 
                     <input class="carousel-open" type="radio" id="carousel-8" name="carousel" aria-hidden="true"
                         hidden="">
                     <div class="carousel-item">
                         <img class="mainimage" id="mainimage8" alt="interior design"
-                            src="<%= design.getDesignUrls().get(1) %>">
+                            src="<%= design.getDesignUrls().get(3) %>">
                     </div>
 
                     <input class="carousel-open" type="radio" id="carousel-9" name="carousel" aria-hidden="true"
                         hidden="">
                     <div class="carousel-item">
                         <img class="mainimage" id="mainimage9" alt="interior design"
-                            src="<%= design.getDesignUrls().get(0) %>">
+                            src="<%= design.getDesignUrls().get(2) %>">
                     </div>
 
                     <input class="carousel-open" type="radio" id="carousel-10" name="carousel" aria-hidden="true"
                         hidden="">
                     <div class="carousel-item">
                         <img class="mainimage" id="mainimage10" alt="interior design"
-                            src="<%= design.getDesignUrls().get(4) %>">
+                            src="<%= design.getDesignUrls().get(1) %>">
                     </div>
 
                     <label for="carousel-10" class="carousel-control prev control-1">&lt;</label>
