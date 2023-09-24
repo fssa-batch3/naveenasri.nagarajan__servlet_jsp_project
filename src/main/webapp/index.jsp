@@ -18,6 +18,7 @@
 	background-image:
 		url("<%=request.getContextPath()%>/assets/image/login_as_customer/home/image 1.jpg");
 }
+
 </style>
 <title>Index</title>
 </head>
