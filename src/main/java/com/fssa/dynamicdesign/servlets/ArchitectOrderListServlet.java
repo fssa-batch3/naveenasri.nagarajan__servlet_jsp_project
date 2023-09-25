@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fssa.dynamicdesign.model.Architect;
 import com.fssa.dynamicdesign.model.Booking;
@@ -26,68 +27,75 @@ import com.fssa.dynamicdesign.service.exception.ServiceException;
 @WebServlet("/ArchitectOrderListServlet")
 public class ArchitectOrderListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ArchitectOrderListServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        String architectEmail = (String) request.getSession().getAttribute("loggedInEmail");
-        System.out.println(architectEmail);
-        ArchitectService architectService = new ArchitectService();
-        try {    // Create an instance of your service class
-        Architect architect = architectService.getArchitectByEmail(architectEmail); // Call the method on the instance
-
-        // store that architect Id here architectId
-        int architectId = architect.getArchitectID();
-        
-        System.out.println("Design Lists for Architect with ID: " + architectId);
-        
-        
-        BookingService bookingService = new BookingService();
-
-       
-            // Call the service method to retrieve bookings by user ID
-        List<Booking> userBookings = new ArrayList<>();  
-            List<Booking> bookings = bookingService.listBookingsByArchitectId(architectId);
-            
-
-            for(Booking booking : bookings) {
-                UserService userService = new UserService();
-            	User user = userService.getUserById(booking.getUserId());
-            	booking.setUser(user);
-            	userBookings.add(booking);            	
-            }
-            
-            // Set the retrieved bookings as an attribute in the request
-            request.setAttribute("bookings", userBookings);
-          //  response.sendRedirect("/my_order.jsp");
-
-
-        } catch (ServiceException e) {
-			out.print(e.getMessage());
-            e.printStackTrace(); 
-         //   response.sendRedirect("/architect_profile.jsp");
-        }
-        
-        RequestDispatcher dispatcher = request.getRequestDispatcher("my_order.jsp");
-        dispatcher.forward(request, response);
-        
-        
+	public ArchitectOrderListServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession(false);
+
+		if (session != null) {
+			String architectEmail = (String) request.getSession().getAttribute("loggedInEmail");
+			System.out.println(architectEmail);
+			ArchitectService architectService = new ArchitectService();
+			try { // Create an instance of your service class
+				Architect architect = architectService.getArchitectByEmail(architectEmail); // Call the method on the
+																							// instance
+
+				// store that architect Id here architectId
+				int architectId = architect.getArchitectID();
+
+				System.out.println("Design Lists for Architect with ID: " + architectId);
+
+				BookingService bookingService = new BookingService();
+
+				// Call the service method to retrieve bookings by user ID
+				List<Booking> userBookings = new ArrayList<>();
+				List<Booking> bookings = bookingService.listBookingsByArchitectId(architectId);
+
+				for (Booking booking : bookings) {
+					UserService userService = new UserService();
+					User user = userService.getUserById(booking.getUserId());
+					booking.setUser(user);
+					userBookings.add(booking);
+				}
+
+				// Set the retrieved bookings as an attribute in the request
+				request.setAttribute("bookings", userBookings);
+				// response.sendRedirect("/my_order.jsp");
+
+			} catch (ServiceException e) {
+				out.print(e.getMessage());
+				e.printStackTrace();
+				// response.sendRedirect("/architect_profile.jsp");
+			}
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("my_order.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			System.out.println("session invalid in the architect order list page you wants to login again");
+			response.sendRedirect("architect_login.jsp");
+		}
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

@@ -17,7 +17,31 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
+	
+	
+	<div class="unique">
+	<form action="SearchDesignServlet" method="get">
+    <div>
+        <input type="text" id="search" name="search" placeholder="Search">
+        <button type="submit"> Search</button>
+    </div>
+</form>
+<form action="FilterDesignsServlet" method="Get">
+    <div class="filter">
+        <select class="selectColor" id="selectColor" name="selectrooms">
+            <option value="Livingroom">Livingroom</option>
+            <option value="Kitchen">Kitchen</option>
+            <option value="Bedroom">Bedroom</option>
+            <option value="Bathroom">Bathroom</option>
+            <option value="others">Others</option>
+        </select>
+        <button type="submit">Filter</button>
+    </div>
+</form>
+
+    </div>
 	<div class="designs">
+	
 		<%
 		List<Design> listDesigns = (List<Design>) request.getAttribute("designs");
 		if (listDesigns != null && !listDesigns.isEmpty()) {
@@ -26,6 +50,9 @@
 			System.out.println();
 		
 		%>
+		
+		
+		
 		<div class="card">
 			<img class="free_img" src="<%= design.getDesignUrls().get(0) %>"
 				alt="Design Image">

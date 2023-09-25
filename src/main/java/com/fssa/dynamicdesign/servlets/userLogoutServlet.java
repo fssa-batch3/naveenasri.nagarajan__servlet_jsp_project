@@ -41,6 +41,8 @@ public class userLogoutServlet extends HttpServlet {
 		}
 		else {
 			System.out.println("No Session Exists");
+			System.out.println("session invalid in the user logout page you wants to login again");
+			response.sendRedirect("user_login.jsp");
 		}
 		
 		// Redirecting to login page since we have logged out

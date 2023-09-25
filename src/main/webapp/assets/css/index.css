@@ -111,7 +111,6 @@ section div {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  flex-wrap: wrap;
   width: 85%;
 }
 .history p {
@@ -148,7 +147,8 @@ button {
   font-size: 20px;
   padding: 10px;
   border: none;
-  width: 350px;
+  width: 306px;
+/*  width: 350px; */
   border-radius: 12px;
   font-weight: bolder;
   cursor: pointer;

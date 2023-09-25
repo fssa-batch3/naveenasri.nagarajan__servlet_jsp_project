@@ -37,6 +37,7 @@ public class UserCreateBookingServlet extends HttpServlet {
     	
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession(false);
+        if(session != null) {
         User user = (User) session.getAttribute("user");
         
         int userId = user.getUserId();
@@ -82,6 +83,10 @@ public class UserCreateBookingServlet extends HttpServlet {
 			out.print(e.getMessage());
 			    
         }
+        } else {
+			System.out.println("session invalid in the user create booking page you wants to login again");
+			response.sendRedirect("user_login.jsp");
+		}
     }
 
 	/**

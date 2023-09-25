@@ -22,6 +22,7 @@ public class UserDeleteServlet extends HttpServlet {
             throws ServletException, IOException {
     	
 		HttpSession session = request.getSession(false);
+		if(session != null) {
 		User user = (User) session.getAttribute("user");
     	String email  = user.getEmail();
 		
@@ -51,5 +52,9 @@ public class UserDeleteServlet extends HttpServlet {
         }
         
         out.println("</body></html>");
+		}else {
+			System.out.println("session invalid in the user delete page you wants to login again");
+			response.sendRedirect("user_login.jsp");
+		}
     }
 }

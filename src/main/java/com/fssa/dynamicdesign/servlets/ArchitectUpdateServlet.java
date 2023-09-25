@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fssa.dynamicdesign.model.Architect;
 import com.fssa.dynamicdesign.service.ArchitectService;
@@ -32,6 +33,9 @@ public class ArchitectUpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession(false);
+
+		if (session != null) {
 
 		// Retrieve data from the form fields
 		String profileImage = request.getParameter("profileImage");
@@ -80,6 +84,10 @@ public class ArchitectUpdateServlet extends HttpServlet {
 			patcher.forward(request, response);
 		//	response.sendRedirect("architect_register.jsp?error="+error[1]);
 			out.print(e.getMessage());			// Handle the service exception, e.g., redirect to an error page.
+		}
+		} else {
+			System.out.println("session invalid in the architect  update page you wants to login again");
+			response.sendRedirect("architect_login.jsp");
 		}
 	}
 }

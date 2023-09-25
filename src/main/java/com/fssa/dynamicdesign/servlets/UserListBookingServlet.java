@@ -41,6 +41,7 @@ public class UserListBookingServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
         HttpSession session = request.getSession(false);
+    	if (session != null) {
         User user = (User) session.getAttribute("user");
         
         int userId = user.getUserId();
@@ -71,6 +72,10 @@ public class UserListBookingServlet extends HttpServlet {
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("my_booking.jsp");
         dispatcher.forward(request, response);
+    	} else {
+			System.out.println("session invalid in the user list booking  page you wants to login again");
+			response.sendRedirect("user_login.jsp");
+		}
 	}
 
 	/**

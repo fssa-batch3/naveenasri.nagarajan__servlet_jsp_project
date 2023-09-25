@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="./assets/css/architect_register.css" />
     <title>architect apply form</title></head>
 <body>
-<jsp:include page="architect_header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 
     <section class="all-form">
-        <form action="architect_register" method="post" id="architectForm1">
+    <div class="head_div">
+					<h2 class="head" style="margin-top: 5px;margin-bottom: 0px;">Architect Register</h2>
+				</div>
+        <form action="architect_register" method="post" >
         
             <div class="full_form">
                 <div class="form">
@@ -28,7 +31,7 @@
 				<%
 				}
 				%>
-                    <h2>personal information</h2>
+                    <h2 Style="margin-top: -3px;">personal information</h2>
                     <label for="image">Photo:</label>
                     <input type="url" id="image" required name="profileImage" placeholder="Profileimage" value="${profileImage}"/><br /><br />
 
@@ -66,7 +69,7 @@
 
                 </div>
                 <div class="form">
-                    <h2>professional information</h2>
+                    <h2 Style="margin-top: -3px;">professional information</h2>
                     <label>Email:</label>
                     <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                         title="Make sure email should be in the correct pattern" required id="email"

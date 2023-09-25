@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<%
 	User user = (User) session.getAttribute("user");
 	String loggedInEmail = (String) session.getAttribute("loggedInEmail");

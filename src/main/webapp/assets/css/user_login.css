@@ -48,9 +48,6 @@ button {
 	display: block;
 }
 
-
-               
-
 .onlylog {
 	margin: -300px 500px;
 	width: 380px;
@@ -63,8 +60,11 @@ button {
 }
 
 .onlyreg {
-	margin: 20px 500px;
-	width: 522px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 31%;
+	margin: 20px 31%;
+	width: 457px;
 	background-color: #96aaec;
 	font-size: 22px;
 	height: auto;
@@ -74,7 +74,7 @@ button {
 }
 
 .alert {
-	width: 300px; margin-left : 50px;
+	width: 300px;
 	font-size: 22px;
 	padding-left: 41px;
 	margin-left: 50px;

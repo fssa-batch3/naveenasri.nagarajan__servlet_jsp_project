@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fssa.dynamicdesign.model.Design;
 import com.fssa.dynamicdesign.service.DesignService;
@@ -29,6 +30,9 @@ public class DesignEditServlet extends HttpServlet {
  	}
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	HttpSession session = request.getSession(false);
+
+		if (session != null) {
         long uniqueId = Long.parseLong(request.getParameter("uniqueId"));
 
         // Retrieve form parameters
@@ -73,7 +77,10 @@ public class DesignEditServlet extends HttpServlet {
             // Handle service exception
             response.sendRedirect("design_edit.jsp?uniqueId=" + uniqueId + "&error=" + e.getMessage());
         }
-        
+		} else {
+			System.out.println("session invalid in the architect design update page you wants to login again");
+			response.sendRedirect("architect_login.jsp");
+		}
        
     }
 }

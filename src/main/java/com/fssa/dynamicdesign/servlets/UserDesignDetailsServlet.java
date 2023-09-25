@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fssa.dynamicdesign.model.Architect;
 import com.fssa.dynamicdesign.model.Design;
@@ -18,54 +19,60 @@ import com.fssa.dynamicdesign.service.ArchitectService;
 
 @WebServlet("/UserDesignDetailServlet")
 public class UserDesignDetailsServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        // Retrieve the uniqueId from the request parameter
-        String uniqueIdString = request.getParameter("uniqueId");
-        System.out.println("uniqueIdString: " + uniqueIdString); // Add this line
+	private static final long serialVersionUID = 1L;
 
-        // Initialize the DesignService
-        DesignService designService = new DesignService();
-        ArchitectService architectService = new ArchitectService();
-        List<Design> designs = null; // Initialize the designs list
-        Architect architect = null; // Initialize the architect object
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			// Retrieve the uniqueId from the request parameter
+			String uniqueIdString = request.getParameter("uniqueId");
+			System.out.println("uniqueIdString: " + uniqueIdString); // Add this line
 
-        try {
-            long uniqueId = Long.parseLong(uniqueIdString);
-            System.out.println(uniqueId);
-            designs = designService.getDesignByUniqueId(uniqueId);
-            
-            // Check if any designs were found
-            if (designs != null && !designs.isEmpty()) {
-                int architectId = designs.get(0).getArchitectId(); // Assuming you want the architect from the first design
-                architect = architectService.getArchitectById(architectId);
-            } 
-        } catch (ServiceException e) {
-            e.printStackTrace();
-            request.setAttribute("error", "Error fetching design data.");
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid uniqueIdString: " + uniqueIdString);
-        }
+			// Initialize the DesignService
+			DesignService designService = new DesignService();
+			ArchitectService architectService = new ArchitectService();
+			List<Design> designs = null; // Initialize the designs list
+			Architect architect = null; // Initialize the architect object
 
-        // Set the designs list as an attribute to be used in the JSP
-        request.setAttribute("designs", designs);
-        System.out.println(designs);
+			try {
+				long uniqueId = Long.parseLong(uniqueIdString);
+				System.out.println(uniqueId);
+				designs = designService.getDesignByUniqueId(uniqueId);
 
-        // Check if architect is not null before accessing its methods
-        if (architect != null) {
-            request.setAttribute("architect", architect);
-            System.out.println(architect);
-        }
+				// Check if any designs were found
+				if (designs != null && !designs.isEmpty()) {
+					int architectId = designs.get(0).getArchitectId(); // Assuming you want the architect from the first
+																		// design
+					architect = architectService.getArchitectById(architectId);
+				}
+			} catch (ServiceException e) {
+				e.printStackTrace();
+				request.setAttribute("error", "Error fetching design data.");
+			} catch (NumberFormatException e) {
+				System.out.println("Invalid uniqueIdString: " + uniqueIdString);
+			}
 
-        // Forward the request to the design details JSP
-        request.getRequestDispatcher("/user_design_detail.jsp").forward(request, response);
-    }
+			// Set the designs list as an attribute to be used in the JSP
+			request.setAttribute("designs", designs);
+			System.out.println(designs);
 
-    
-    
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        // Handle any POST requests if needed
-    }
+			// Check if architect is not null before accessing its methods
+			if (architect != null) {
+				request.setAttribute("architect", architect);
+				System.out.println(architect);
+			}
+
+			// Forward the request to the design details JSP
+			request.getRequestDispatcher("/user_design_detail.jsp").forward(request, response);
+		} else {
+			System.out.println("session invalid in the user design detail page you wants to login again");
+			response.sendRedirect("user_login.jsp");
+		}
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// Handle any POST requests if needed
+	}
 }

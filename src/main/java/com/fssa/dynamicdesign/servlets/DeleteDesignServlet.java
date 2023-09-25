@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fssa.dynamicdesign.service.DesignService;
 import com.fssa.dynamicdesign.service.exception.ServiceException;
@@ -17,6 +18,9 @@ public class DeleteDesignServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	HttpSession session = request.getSession(false);
+
+		if (session != null) {
         // Get the uniqueId parameter from the request
         long uniqueId = Long.parseLong(request.getParameter("uniqueId"));
 
@@ -44,5 +48,9 @@ public class DeleteDesignServlet extends HttpServlet {
             e.printStackTrace();
             response.getWriter().write("An error occurred while deleting the design.");
         }
+		} else {
+			System.out.println("session invalid in the architect design delete page you wants to login again");
+			response.sendRedirect("architect_login.jsp");
+		}
     }
 }

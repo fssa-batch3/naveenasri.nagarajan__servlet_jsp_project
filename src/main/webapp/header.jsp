@@ -32,16 +32,16 @@
 				<div class="dropdown">
 					<button class="dropbtn">Login</button>
 					<div class="dropdown-content">
-						<a href="user_login.jsp">login as customer</a> <a
-							href="architect_login.jsp">login as architect</a>
+						<a href="user_login.jsp">Login as Customer</a> <a
+							href="architect_login.jsp">Login as Architect</a>
 					</div>
 				</div>
 
 				<div class="dropdown">
 					<button class="dropbtn">Register</button>
 					<div class="dropdown-content">
-						<a href="user_register.jsp">Register as customer</a> <a
-							href="architect_register.jsp">Register as architect</a>
+						<a href="user_register.jsp">Register as Customer</a> <a
+							href="architect_register.jsp">Register as Architect</a>
 					</div>
 				</div>
 			</div>

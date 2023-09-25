@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fssa.dynamicdesign.model.Architect;
 import com.fssa.dynamicdesign.model.Design;
@@ -23,6 +24,9 @@ public class ArchitectListDesignServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	HttpSession session = request.getSession(false);
+
+		if (session != null) {
         try {
             PrintWriter out = response.getWriter();
             DesignService designService = new DesignService();
@@ -48,6 +52,10 @@ public class ArchitectListDesignServlet extends HttpServlet {
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("architect_design_list.jsp");
         dispatcher.forward(request, response);
+		} else {
+			System.out.println("session invalid in the architect list design  page you wants to login again");
+			response.sendRedirect("architect_login.jsp");
+		}
     }
 
 }

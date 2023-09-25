@@ -20,6 +20,8 @@ public class UserprofileServlet extends HttpServlet {
             throws ServletException, IOException {
     	
     	HttpSession session = request.getSession(false);
+    	
+    	 if(session!=null){  
     	User user = (User) session.getAttribute("user");
     	String email  = user.getEmail();
     
@@ -39,6 +41,10 @@ public class UserprofileServlet extends HttpServlet {
         }
 
         request.getRequestDispatcher("/user_profile.jsp").forward(request, response);
+        } else{  
+        	System.out.println("session invalid in the user profile page you wants to login again");
+    		response.sendRedirect("user_login.jsp");
+        }  
     }
  
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
