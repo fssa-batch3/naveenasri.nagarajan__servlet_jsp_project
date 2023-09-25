@@ -86,7 +86,7 @@
 			    }
 			
 			    // Set a timer to automatically advance the carousel
-			    var autoAdvanceInterval = 1000; // Set the interval in milliseconds (e.g., 3000ms = 3 seconds)
+			    var autoAdvanceInterval = 2000; // Set the interval in milliseconds (e.g., 3000ms = 3 seconds)
 			    setInterval(nextSlide, autoAdvanceInterval);
 			</script>
 

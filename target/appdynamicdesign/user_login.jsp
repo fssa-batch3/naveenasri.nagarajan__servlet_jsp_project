@@ -19,7 +19,9 @@
 
 	<h1>Login Page</h1>
 	<form action="login" method="post" id="form3" class="onlylog">
-	
+		<div class="head_div">
+			<h2 class="head" style="margin-top: 0px">User Login</h2>
+		</div>
 	<%
 		String errorMessage = request.getParameter("error");
 		if (errorMessage != null) {

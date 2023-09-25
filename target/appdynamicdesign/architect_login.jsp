@@ -13,9 +13,12 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 
-	<h1>Login Page for Architects</h1>
+	<h1 Style="font-size: 37px;">Login Page for Architects</h1>
 	
 	<form action="architect_login" method="post" id="form3" class="onlylog">
+		<div class="head_div">
+					<h2 class="head" style="margin-top: 0px">Architect Login</h2>
+		</div>
 	<%
 		String errorMessage = request.getParameter("error");
 		if (errorMessage != null) {

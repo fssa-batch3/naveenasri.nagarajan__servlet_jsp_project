@@ -26,18 +26,18 @@
         <button type="submit"> Search</button>
     </div>
 </form>
-<form action="FilterDesignsServlet" method="Get">
-    <div class="filter">
-        <select class="selectColor" id="selectColor" name="selectrooms">
-            <option value="Livingroom">Livingroom</option>
-            <option value="Kitchen">Kitchen</option>
-            <option value="Bedroom">Bedroom</option>
-            <option value="Bathroom">Bathroom</option>
-            <option value="others">Others</option>
-        </select>
-        <button type="submit">Filter</button>
-    </div>
-</form>
+	<form action="FilterDesignsServlet" method="get">
+	    <div class="filter">
+	        <select class="selectColor" id="selectColor" name="selectrooms">
+	            <option value="Livingroom">Livingroom</option>
+	            <option value="Kitchen">Kitchen</option>
+	            <option value="Bedroom">Bedroom</option>
+	            <option value="Bathroom">Bathroom</option>
+	            <option value="others">Others</option>
+	        </select>
+	        <button type="submit">Filter</button>
+	    </div>
+	</form>
 
     </div>
 	<div class="designs">

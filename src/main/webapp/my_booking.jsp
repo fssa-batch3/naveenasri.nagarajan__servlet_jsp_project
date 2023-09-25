@@ -15,6 +15,7 @@
     <jsp:include page="header.jsp"></jsp:include>
 
     <div class="container">
+    
         <div class="list-of-customer">
        <%
 			List<Booking> listBookings = (List<Booking>) request.getAttribute("bookings");

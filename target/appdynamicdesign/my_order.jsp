@@ -60,7 +60,7 @@
 			    }
 			} else {
 			%>
-			  <img alt="interior design" class="free_img" Style="width: auto;height: auto;margin-left: 146px;" src="./assets/image/common/appoinments.png">
+			  <img alt="interior design" class="free_img" Style="width: auto;height: auto;margin-left: 17px;" src="./assets/image/common/appoinments.png">
 
 			<%
 			}

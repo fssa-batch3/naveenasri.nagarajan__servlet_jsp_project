@@ -16,8 +16,12 @@
 
 		<div class="main-container">
 			<div>
-
+				
 				<form action="user_register" method="post" id="form2" class="onlyreg">
+				<div class="head_div">
+					<h2 class="head" style="margin-top: 0px">User Register</h2>
+				</div>
+				
 					<% String errorMessage=request.getParameter("error"); if (errorMessage !=null) { %>
 
 						<div class="styledbutton">
@@ -27,7 +31,7 @@
 						<br /> <br />
 						<% } %>
 							<label>Email :</label> <input type="email" name="email" placeholder="Enter email"
-								value="${email}" /> <br /> <br /> <label>User
+								value="${email}" /> <br /> <br /> <label>
 								Name :</label><input name="name" placeholder="Enter your name" value="${name}" /> <br />
 							<br /> <label>Password :</label> <input type="password" name="password"
 								placeholder="Enter password" value="${password}" /> <br /> <br /> <label>Phone

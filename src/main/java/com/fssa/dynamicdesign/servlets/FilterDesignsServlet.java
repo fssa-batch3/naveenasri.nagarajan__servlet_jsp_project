@@ -20,10 +20,13 @@ import com.fssa.dynamicdesign.service.exception.ServiceException;
  */
 @WebServlet("/FilterDesignsServlet")
 public class FilterDesignsServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+   
+
+	private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	System.out.println("work");
     	HttpSession session = request.getSession(false);
 
 		if (session != null) {
@@ -55,4 +58,10 @@ public class FilterDesignsServlet extends HttpServlet {
 			response.sendRedirect("user_login.jsp");
 		}
     }
+    @Override
+   	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+   		// TODO Auto-generated method stub
+   		doGet(req, resp);
+   	}
+    
 }

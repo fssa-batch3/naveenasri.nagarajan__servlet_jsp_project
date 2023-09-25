@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.fssa.dynamicdesign.model.Design;
+import com.fssa.dynamicdesign.service.ArchitectService;
 import com.fssa.dynamicdesign.service.DesignService;
 import com.fssa.dynamicdesign.service.exception.ServiceException;
 
@@ -26,7 +27,16 @@ public class CreateDesignServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 
 		if (session != null) {
-			int architectId = Integer.parseInt(request.getParameter("architectId"));
+			String email = (String) session.getAttribute("loggedInEmail");
+			ArchitectService architect = new ArchitectService();
+
+			int architectId = 0;
+			try {
+				architectId = architect.getArchitectByEmail(email).getArchitectID();
+			} catch (ServiceException e) {
+				e.printStackTrace();
+			}
+			
 			String name = request.getParameter("name");
 			String style = request.getParameter("style");
 			int squarefeet = Integer.parseInt(request.getParameter("sqft"));
@@ -57,6 +67,7 @@ public class CreateDesignServlet extends HttpServlet {
 			DesignService designService = new DesignService();
 
 			try {
+				
 				designService.createDesign(design);
 				out.println("<h1>Design Created Successfully</h1>");
 				response.sendRedirect("architectdesignlistservlet"); // Redirect to the design list page after
@@ -86,4 +97,5 @@ public class CreateDesignServlet extends HttpServlet {
 		}
 
 	}
+
 }

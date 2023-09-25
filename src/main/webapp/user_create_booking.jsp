@@ -16,6 +16,9 @@
 		<div class="container">
 			<div class="list-of-customer">
 				<div class="a-form bookingpage">
+					<div class="head_div">
+					<h2 class="head" style="margin-top: 0px">Architect Booking</h2>
+				</div>
 					<% String architectId=request.getParameter("architectId"); %>
 						<form id="bookingform" action="UserCreateBooking?architectId=<%=architectId%>" method="post">
 							<% String errorMessage=request.getParameter("error"); if (errorMessage !=null) { %>

@@ -4,26 +4,6 @@
 
 	<head>
 		<meta charset="ISO-8859-1">
-		<link rel="stylesheet" href="./assets/css/universe.css" />
-		<link rel="stylesheet" href="./assets/css/user_login.css">
-		<link rel="stylesheet" href="./assets/css/index.css" />
-		<link rel="stylesheet" href="./assets/css/architect_apply_form.css" />
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-			integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-			crossorigin="anonymous" />
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-			integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-			crossorigin="anonymous" />
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-			crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-			integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-			crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-			integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-			crossorigin="anonymous"></script>
-
 		<style type="text/css">
 			textarea {
 				overflow: auto;
@@ -52,7 +32,7 @@
 			}
 
 			#onlyreg {
-				width: 548px;
+				 width: 548px;
 				font-size: 17px;
 			}
 
@@ -63,6 +43,27 @@
 				float: right;
 			}
 		</style>
+		<link rel="stylesheet" href="./assets/css/universe.css" />
+		<link rel="stylesheet" href="./assets/css/user_login.css">
+		<link rel="stylesheet" href="./assets/css/index.css" />
+		<link rel="stylesheet" href="./assets/css/architect_apply_form.css" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+			integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+			crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+			integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+			crossorigin="anonymous" />
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+			integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+			crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+			integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+			crossorigin="anonymous"></script>
+
+		
 		<title>Create Design</title>
 	</head>
 
@@ -71,7 +72,7 @@
 
 		<div class="main-container">
 			<div>
-				<form action="createDesign" method="post" id="form2" id="onlyreg" class="onlyreg">
+				<form action="createDesign" method="post" style=" width: 548px;font-size: 19px;" id="form2" id="onlyreg" class="onlyreg">
 					<% String errorMessage=request.getParameter("error"); if (errorMessage !=null) { %>
 
 						<div class="styledbutton" style="width: 443px;">
@@ -80,8 +81,6 @@
 						</div>
 						<br /> <br />
 						<% } %>
-							<label>Architect Id : *</label> <input id="small" type="number" name="architectId"
-								placeholder="Enter architectId " value="${architectId}" required /> <br /> <br />
 							<label>Name:
 								*</label> <input id="small" type="text" name="name" placeholder="Enter design name"
 								value="${name}" required /> <br />
@@ -94,14 +93,14 @@
 								sq/ft: *</label> <input type="number" id="small" name="priceppersqft" required
 								value="${priceppersqft}" min="1" max="999" /> <br /> <br /> <label
 								for="category">Category:</label>
-							<select id="category" name="category" id="small" value="${category}">
+							<select id="category" style="margin-left: 156px;" name="category" id="small" value="${category}">
 								<option value="Bedroom">Bedroom</option>
 								<option value="Livingroom">Livingroom</option>
 								<option value="Kitchen">Kitchen</option>
 								<option value="Bathroom">Bathroom</option>
 								<option value="others">others</option>
 							</select><br />
-							<br /> <label for="floorPlan">Floor Plan:</label> <select id="floorPlan" name="floorPlan"
+							<br /> <label for="floorPlan">Floor Plan:</label> <select style="margin-left: 146px;" id="floorPlan" name="floorPlan"
 								id="small" value="${floorplan}">
 								<option value="1BHK">1BHK</option>
 								<option value="2BHK">2BHK</option>

@@ -54,14 +54,14 @@
 				%>
 
 				<label>Email :</label> <span class="value"> <%=users.getEmail()%>
-				</span> <br /> <br /> <label>User Name :</label> <span class="value">
+				</span> <br /> <br /> <label>Name :</label> <span class="value">
 					<%=users.getUsername()%>
 				</span> <br /> <br />  <label>Phone Number:</label> <span class="value">
 					<%=users.getPhonenumber()%>
 				</span> <br /> <br />
 
 				<div class="submit">
-					<a href="user_update.jsp?email=<%=email%>" class="edit_btn">Edit</a>
+					<a href="user_update.jsp" class="edit_btn">Edit</a>
 					<a href="userLogoutServlet" class="edit_btn">Logout</a> <a
 						href="deleteUser" class="edit_btn">Delete</a>
 				</div>
