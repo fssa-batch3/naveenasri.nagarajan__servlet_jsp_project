@@ -26,8 +26,8 @@
 		<div id="section8">
 			<div class="section1">
 				<div class="hold">
-					<div class="img2">Interior</div>
-					<div class="img3">design</div>
+					<div class="img2">User</div>
+					<div class="img3">Home</div>
 				</div>
 				<div class="holder">
 					<div class="img2">

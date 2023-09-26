@@ -1,7 +1,7 @@
 package com.fssa.dynamicdesign.servlets;
 
 import java.io.IOException;
-
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -33,7 +33,10 @@ public class FilterDesignsServlet extends HttpServlet {
         // Retrieve the selected category from the request parameters
         String selectedCategory = request.getParameter("selectrooms");
         System.out.println("Selcted category===========================================");
-        System.out.println("Selcted category" + selectedCategory);
+        
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.print("Selected category: " + selectedCategory);
         
         // Create an instance of your DesignService (replace with your actual service instantiation)
 

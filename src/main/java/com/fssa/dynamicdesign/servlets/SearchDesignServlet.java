@@ -46,7 +46,7 @@ public class SearchDesignServlet extends HttpServlet {
             } else {
                 // Handle the case where no search query is provided
                 request.setAttribute("errorMessage", "Please enter a search query.");
-                request.getRequestDispatcher("user_profile.jsp").forward(request, response);
+                request.getRequestDispatcher("userdesignlistservlet").forward(request, response);
             }
         } else {
             System.out.println("Session invalid on the user update page; you need to log in again.");

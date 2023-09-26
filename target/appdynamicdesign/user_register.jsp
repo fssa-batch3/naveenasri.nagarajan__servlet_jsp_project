@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<link rel="stylesheet" href="./assets/css/universe.css" />
-		<link rel="stylesheet" href="./assets/css/user_login.css">
+		<link rel="stylesheet" href="./assets/css/form.css">
 		<link rel="stylesheet" href="./assets/css/index.css" />
 
 		<title>User Register</title>

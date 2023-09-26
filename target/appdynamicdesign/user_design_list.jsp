@@ -13,19 +13,28 @@
 <link rel="stylesheet" href="./assets/css/universe.css" />
 <link rel="stylesheet" href="./assets/css/design.css">
 <link rel="stylesheet" href="./assets/css/index.css" />
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	
 	
 	<div class="unique">
+	<!-- 
 	<form action="SearchDesignServlet" method="get">
     <div>
         <input type="text" id="search" name="search" placeholder="Search">
         <button type="submit"> Search</button>
     </div>
 </form>
+ -->
+ 
+<form action="SearchDesignServlet" method="get">
+    <div>
+        <input type="text" id="search" name="search" placeholder="Search">
+    </div>
+</form>
+
 	<form action="FilterDesignsServlet" method="get">
 	    <div class="filter">
 	        <select class="selectColor" id="selectColor" name="selectrooms">
@@ -40,7 +49,8 @@
 	</form>
 
     </div>
-	<div class="designs">
+    
+	<div class="designs"  id="searchResults">
 	
 		<%
 		List<Design> listDesigns = (List<Design>) request.getAttribute("designs");
@@ -77,5 +87,27 @@
 		}
 		%>
 	</div>
+	
+	
+<script>
+    $(document).ready(function () {
+        $('#search').on('input', function () {
+            const query = $(this).val();
+
+            // Send an AJAX request to your server to fetch search results based on 'query'
+            $.ajax({
+                url: 'SearchDesignServlet', // Replace with your actual servlet URL
+                type: 'GET',
+                data: { search: query },
+                success: function (data) {
+                    // Display the search results returned from the server
+                    // You can update a results div or element with the data
+                    // For example: $('#searchResults').html(data);
+                }
+            });
+        });
+    });
+</script>
+	
 </body>
 </html>

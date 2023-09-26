@@ -11,6 +11,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   text-align: center;
+  width: -webkit-fill-available;
   width: 500px;
 }
 /* header is ended */
@@ -148,6 +149,7 @@ button {
   padding: 10px;
   border: none;
   width: 306px;
+  width: -webkit-fill-available;
 /*  width: 350px; */
   border-radius: 12px;
   font-weight: bolder;

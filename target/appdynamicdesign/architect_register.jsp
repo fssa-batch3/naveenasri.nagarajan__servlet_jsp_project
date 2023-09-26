@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
   <link rel="stylesheet" href="./assets/css/universe.css" />
-    <link rel="stylesheet" href="./assets/css/architect_register.css" />
+  <link rel="stylesheet" href="./assets/css/architect_register.css" /> 
     <title>architect apply form</title></head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
@@ -105,15 +105,19 @@
                     <button type="submit">Apply now / sign up
 
                     </button>
+                    
                 </div>
             </div>
 
-            <a class="logbtn" href="architect_login.jsp">
-                Log in
-            </a>
+           
 
         </form>
 
+				<br>
+	                     <a class="logbtn" href="architect_login.jsp">
+	               			 Log in
+	            		</a>
+            	
     </section>
 
 </body>

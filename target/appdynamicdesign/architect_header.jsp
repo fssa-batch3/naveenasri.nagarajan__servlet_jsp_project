@@ -8,6 +8,8 @@
 <title>Index Page</title>
 <link rel="stylesheet" href="./assets/css/universe.css" />
 <link rel="stylesheet" href="./assets/css/index.css" />
+
+<link rel="stylesheet" href="./assets/css/architect_register.css" />
 </head>
 
 <body>

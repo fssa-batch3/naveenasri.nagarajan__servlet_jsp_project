@@ -81,8 +81,6 @@
 						</div>
 						<br /> <br />
 						<% } %>
-							<label>Architect Id : *</label> <input id="small" type="number" name="architectId"
-								placeholder="Enter architectId " value="${architectId}" required /> <br /> <br />
 							<label>Name:
 								*</label> <input id="small" type="text" name="name" placeholder="Enter design name"
 								value="${name}" required /> <br />
