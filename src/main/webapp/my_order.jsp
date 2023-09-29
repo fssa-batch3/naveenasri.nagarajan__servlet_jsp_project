@@ -116,6 +116,8 @@ font-size: 30px;
 			if (listBookings != null && !listBookings.isEmpty()) {
 			    for (Booking booking : listBookings) {
 			        User user = booking.getUser();
+			        String[] arr = booking.getDate().split(" ");
+
 			%>
     <div id="a-form" class="design-form">
         <img class="designurl" id="designUrl" src="<%=booking.getDesignUrl()%>" />
@@ -132,10 +134,13 @@ font-size: 30px;
             <pre>Design name      : <span id="designName"><%=booking.getDesignName()%></span></pre>
         </div>
         <div>
-            <pre>Expected Amount  : <span id="amount"><%=booking.getExpectedAmount()%></span></pre>
+            <pre>Budget           : <span id="amount"><%=booking.getExpectedAmount()%></span></pre>
         </div>
         <div>
             <pre>Expected Months  : <span id="time"><%=booking.getExpectedMonths()%></span></pre>
+        </div>
+          <div>
+            <pre>Date             : <span id="time"><%=arr[0]%></span></pre>
         </div>
          <div style="display:flex">
             <div style="margin-top:-20px"><pre>Message          : </pre></div><div ><a class="button" href="#popup1">View Message</a></div><div id="popup1" class="overlay"><div class="popup"><h2>Message</h2><a class="close" href="#">&times;</a><div class="content"><%=booking.getMessage()%></div></div></div>

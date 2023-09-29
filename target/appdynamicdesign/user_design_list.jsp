@@ -34,7 +34,6 @@
         <input type="text" id="search" name="search" placeholder="Search">
     </div>
 </form>
-
 	<form action="FilterDesignsServlet" method="get">
 	    <div class="filter">
 	        <select class="selectColor" id="selectColor" name="selectrooms">
@@ -44,9 +43,10 @@
 	            <option value="Bathroom">Bathroom</option>
 	            <option value="others">Others</option>
 	        </select>
-	        <button type="submit">Filter</button>
+	        <button style="margin-top: -2px;" type="submit">Filter</button>
 	    </div>
 	</form>
+
 
     </div>
     
@@ -90,24 +90,45 @@
 	
 	
 <script>
-    $(document).ready(function () {
-        $('#search').on('input', function () {
-            const query = $(this).val();
+    const searchInput = document.getElementById("search");
+    const searchResultsDiv = document.getElementById("searchResults");
 
-            // Send an AJAX request to your server to fetch search results based on 'query'
-            $.ajax({
-                url: 'SearchDesignServlet', // Replace with your actual servlet URL
-                type: 'GET',
-                data: { search: query },
-                success: function (data) {
-                    // Display the search results returned from the server
-                    // You can update a results div or element with the data
-                    // For example: $('#searchResults').html(data);
-                }
-            });
-        });
+    searchInput.addEventListener("input", function () {
+        const searchQuery = searchInput.value.trim();
+
+        if (searchQuery.length >= 1) { // Only send a request if the query is at least 3 characters
+            fetch(`/appdynamicdesign/SearchDesignServlet?search=${searchQuery}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Process and display the search results here
+                    displayResults(data);
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+        } else {
+            // Clear the results if the query is too short
+            searchResultsDiv.innerHTML = "";
+        }
     });
+
+    function displayResults(results) {
+        // Display search results in the searchResultsDiv
+        // You can format the results as needed
+        searchResultsDiv.innerHTML = "";
+
+        if (results.length === 0) {
+            searchResultsDiv.innerHTML = "No results found.";
+        } else {
+            results.forEach(result => {
+                const resultItem = document.createElement("div");
+                resultItem.textContent = result;
+                searchResultsDiv.appendChild(resultItem);
+            });
+        }
+    }
 </script>
+
 	
 </body>
 </html>

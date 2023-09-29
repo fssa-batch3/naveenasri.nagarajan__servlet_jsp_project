@@ -45,15 +45,24 @@ public class ArchitectUpdateServlet extends HttpServlet {
 		String address = request.getParameter("address");
 		String coverPhoto = request.getParameter("coverPhoto");
 		String email = request.getParameter("email");
-		String password = request.getParameter("password");
 		String education = request.getParameter("education");
 		int experience = Integer.parseInt(request.getParameter("experience"));
 		String degreeCertificatePhoto = request.getParameter("degreeCertificatePhoto");
 		String nataCertificatePhoto = request.getParameter("nataCertificatePhoto");
 
 		// Create an Architect object with the updated data
-		Architect architect = new Architect(profileImage, name, gender, phoneNumber, address, coverPhoto, email,
-				password, education, experience, degreeCertificatePhoto, nataCertificatePhoto);
+		Architect architect = new Architect();
+		architect.setProfilePhoto(profileImage);
+		architect.setName(name);
+		architect.setGender(gender);
+		architect.setPhoneNumber(phoneNumber);
+		architect.setAddress(address);
+		architect.setCoverPhoto(coverPhoto);
+		architect.setEmail(email);
+		architect.setEducation(education);
+		architect.setExperience(experience);
+		architect.setDegreeCertificate(degreeCertificatePhoto);
+		architect.setNATACertificate(nataCertificatePhoto);
 
 		// Update the architect's profile in the database
 		ArchitectService architectService = new ArchitectService();
@@ -73,7 +82,6 @@ public class ArchitectUpdateServlet extends HttpServlet {
 			request.setAttribute("address", address);
 			request.setAttribute("coverPhoto", coverPhoto);
 			request.setAttribute("email", email);
-			request.setAttribute("password", password);
 			request.setAttribute("education", education);
 			request.setAttribute("experience", experience);
 			request.setAttribute("degreeCertificatePhoto", degreeCertificatePhoto);

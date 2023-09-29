@@ -38,6 +38,9 @@
 			<form action="UserUpdateServlet?email=<%=users.getEmail()%>" method="post"
 				id="form2" class="onlyreg">
 
+				<div class="head_div">
+					<h2 class="head" style="margin-top: 0px">User Update</h2>
+				</div>
 				<!-- error message pop up  -->
 				<%
 				String errorMessage = request.getParameter("error");
@@ -50,15 +53,11 @@
 				<%
 				}
 				%>
-				<label>You can edit only username and password</label> <br /> <br />
 				<label>email :</label> <input type="email" name="email"
 					placeholder="Enter email" value="<%=users.getEmail()%>" readonly /> <br /> <br />
 				<label>User Name :</label><input name="name"
 					placeholder="enter your name" value="<%=users.getUsername()%>" />
-				<br /> <br /> <label class="hidden">password :</label> <input
-					class="hidden" type="password" name="password"
-					placeholder="Enter password" value="<%=users.getPassword()%> "
-					readonly /> <br /> <br /> <label>Phone Number :</label> <input
+				<br /> <br /><label>Phone Number :</label> <input
 					type="number" name="phoneNumber" placeholder="Enter Phone Number"
 					value="<%=users.getPhonenumber()%>" /> <br /> <br /> <label
 					class="hidden">Type :</label> <input name="type"
@@ -66,7 +65,7 @@
 					class="hidden" readonly /> <br /> <br />
 
 				<div>
-					<button class="signup" type="submit">Update</button>
+					<button style="margin-left: 0px;" class="signup" type="submit">Update</button>
 				</div>
 			</form>
 		</div>

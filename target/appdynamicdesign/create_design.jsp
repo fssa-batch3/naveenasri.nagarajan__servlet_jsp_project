@@ -153,7 +153,7 @@
 							</div>
 
 							<div>
-								<button class="signup" type="submit">Add Design</button>
+								<button style="margin-left: 0px;" class="signup" type="submit">Add Design</button>
 							</div>
 				</form>
 			</div>

@@ -86,7 +86,7 @@
                         </div>
 
                         <form action="DesignEditServlet?uniqueId=<%=uniqueId%>" method="post" id="form2"
-                            class="onlyreg">
+                           style="width: 528px;" class="onlyreg">
 
                             <!-- error message pop up  -->
                             <% String errorMessage=request.getParameter("error"); if (errorMessage !=null) { %>
@@ -164,8 +164,7 @@
                                                         %>
 
                                                         <div id="dynamic-field-1" class="form-group dynamic-field">
-                                                            <label for="field" class="font-weight-bold">Image 1
-                                                                *</label>
+                                                            <label for="field" class="font-weight-bold"> Image url </label>
                                                             <input type="text" id="field" class="form-control" required
                                                                 name="field[]" value="<%=i%>" />
                                                             <!-- Add a hidden input field for the image value -->
@@ -189,7 +188,7 @@
                                     </div>
 
                                     <div>
-                                        <button class="signup" type="submit">Update Design</button>
+                                        <button style="margin-left: 0px;" class="signup" type="submit">Update Design</button>
                                     </div>
                         </form>
 

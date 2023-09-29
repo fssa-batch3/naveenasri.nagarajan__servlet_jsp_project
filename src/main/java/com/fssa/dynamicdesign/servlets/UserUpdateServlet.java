@@ -38,7 +38,6 @@ public class UserUpdateServlet extends HttpServlet {
 		if (session != null) {
 			String email = request.getParameter("email");
 			String userName = request.getParameter("name");
-			String password = request.getParameter("password");
 			String phoneNumber = request.getParameter("phoneNumber");
 			String type = request.getParameter("type");
 			PrintWriter out = response.getWriter();
@@ -47,7 +46,11 @@ public class UserUpdateServlet extends HttpServlet {
 
 			UserService userService = new UserService();
 			// check the userID , give valid details
-			User user1 = new User(email, userName, password, phoneNumber, type);
+			User user1 = new User();
+			user1.setEmail(email);
+			user1.setUsername(userName);
+			user1.setPhonenumber(phoneNumber);
+			user1.setType(type);
 			try {
 				userService.updateUser(user1, email);
 

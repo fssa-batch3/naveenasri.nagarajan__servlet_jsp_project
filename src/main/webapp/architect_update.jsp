@@ -28,8 +28,13 @@
     }
     %>
 
-    <form action="architect_update" method="post" id="architectForm1">
+    <form action="architect_update" method="post">
+    <div class="head_div">
+		<h2 class="head" style="margin-top: 0px;margin-bottom: 0px;
+		">Architect Update</h2>
+	</div>
         <div class="full_form">
+        		
             <div class="form">
                <%
         String errorMessage = request.getParameter("error");
@@ -44,7 +49,7 @@
 				<%
 				}
 				%>
-                <h2>Personal Information</h2>
+                <h2 style="margin-top: 0px;margin-bottom: 40px;">Personal Information</h2>
                 <label for="profileImage">Photo:</label>
                 <input type="url" value="<%=architect.getProfilePhoto()%>" id="profileImage" required name="profileImage" placeholder="Profile Image" /><br /><br />
 
@@ -82,17 +87,11 @@
                 <br />
             </div>
             <div class="form">
-                <h2>Professional Information</h2>
+                <h2 style="margin-top: 0px;margin-bottom: 40px;">Professional Information</h2>
                 <label>Email:</label>
                 <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                     title="Make sure email should be in the correct pattern" required id="email"
                     placeholder="abc@gmail.com" value="<%=email%>" />
-                <br />
-                <br />
-                <label>Password:</label>
-                <input type="password" value="<%=architect.getPassword()%>" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\S+$).{8,}$" name="password"
-                    title="Must contain at least one number and one uppercase and lowercase letter, at least 8 or more characters and must not contain space "
-                    required id="password" />
                 <br />
                 <br />
                 <label>Education:</label>
