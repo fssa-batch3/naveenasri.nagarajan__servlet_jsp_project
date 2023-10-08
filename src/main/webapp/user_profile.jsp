@@ -33,6 +33,8 @@
 			} catch (ServiceException e) {
 				System.out.print(e.getMessage());
 			}
+			
+			if(users != null){
 			%>
 
 			<form action="UserprofileServlet?email=<%=users.getEmail()%>" method="Get"
@@ -70,6 +72,10 @@
 
 	</div>
 
+<%	} else {
+			System.out.println("session invalid in the user profile page you wants to login again");
+			response.sendRedirect("user_login.jsp");
+		} %>
 </body>
 
 </html>

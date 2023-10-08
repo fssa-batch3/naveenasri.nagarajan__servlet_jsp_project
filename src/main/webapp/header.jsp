@@ -50,17 +50,6 @@
 			} else {
 			if (user == null) {
 			%>
-<!--
-			<a class="a" href="architect_home.jsp">Home</a> <a class="a"
-				href="architectlistservlet">Architects</a> <a class="a"
-				href="architectdesignlistservlet">Designs</a> <a class="a"
-				href="create_design.jsp">Add Design</a> <a class="a"
-				href="design_edit.jsp">Edit design</a> <a class="a"
-				href="architect_update.jsp?email=<%=loggedInEmail%>">Edit
-				Profile</a> <a class="a"
-				href="architect_delete.jsp?email=<%=loggedInEmail%>">Delete
-				Profile</a>
-			 header is started -->
 			
 			
 			<a class="a" href="architect_home.jsp">Home</a>
@@ -75,14 +64,6 @@
 			<%
 			} else if(loggedInEmail == null) {
 			%>
-			<!-- header is started  user.getType().equals("user") 
-			<a class="a" href="user_home.jsp">Home</a> <a class="a"
-				href="userarchitectlistservlet">Architects</a> <a class="a"
-				href="userdesignlistservlet">Designs</a> <a class="a"
-				href="user_update.jsp?email=<%=loggedInEmail%>">Edit Profile</a> <a
-				class="a" href="user_delete.jsp?email=<%=loggedInEmail%>">Delete
-				Profile</a>
-				-->
 				
 				<a class="a" href="user_home.jsp">Home</a>
 				 <a class="a" href="userarchitectlistservlet">Architects</a> 

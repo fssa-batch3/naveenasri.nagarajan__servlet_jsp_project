@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ page import="com.fssa.dynamicdesign.model.*"%>
+
 	<!DOCTYPE html>
 	<html>
 
@@ -22,7 +24,9 @@
 	<body>
 		<jsp:include page="header.jsp"></jsp:include>
 		<!-- header is ended -->
-
+<%HttpSession ses = request.getSession(false);
+User users = (User) session.getAttribute("user");
+if (users != null) { %>
 		<div id="section8">
 			<div class="section1">
 				<div class="hold">
@@ -221,6 +225,11 @@
 
 		<!-- footer -->
 		<jsp:include page="footer.jsp"></jsp:include>
+		
+		<%	} else {
+			System.out.println("session invalid in the user home page you wants to login again");
+			response.sendRedirect("user_login.jsp");
+		} %>
 	</body>
 
 	</html>

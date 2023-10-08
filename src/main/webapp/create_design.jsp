@@ -70,6 +70,10 @@
 	<body>
 		<jsp:include page="header.jsp"></jsp:include>
 
+<%
+		String email = (String) session.getAttribute("loggedInEmail");
+
+if (email != null) { %>
 		<div class="main-container">
 			<div>
 				<form action="createDesign" method="post" style=" width: 548px;font-size: 19px;" id="form2" id="onlyreg" class="onlyreg">
@@ -235,6 +239,11 @@
 					});
 				});
 		</script>
+		
+		 <%	} else {
+			System.out.println("session invalid in the Architect create design page you wants to login again");
+			response.sendRedirect("architect_login.jsp");
+		} %>
 	</body>
 
 	</html>

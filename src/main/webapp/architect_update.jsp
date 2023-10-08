@@ -17,7 +17,8 @@
 <section class="all-form">
     <%
     String email = (String) request.getParameter("email");
-
+    
+   
     ArchitectService architectService = new ArchitectService();
     Architect architect = new Architect();
 
@@ -26,6 +27,9 @@
     } catch (ServiceException e) {
         out.println(e.getMessage());
     }
+    
+	if (architect != null) {
+
     %>
 
     <form action="architect_update" method="post">
@@ -118,7 +122,11 @@
             </div>
         </div>
     </form>
+    
 </section>
-
+ <%	} else {
+			System.out.println("session invalid in the Architect update profile page you wants to login again");
+			response.sendRedirect("architect_login.jsp");
+		} %>
 </body>
 </html>

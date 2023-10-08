@@ -23,6 +23,11 @@
     <body>
         <jsp:include page="header.jsp"></jsp:include>
         <!-- header is ended -->
+        
+<%
+		String email = (String) session.getAttribute("loggedInEmail");
+
+if (email != null) { %>
         <div id="section8">
             <div class="section1">
                 <div class="hold">
@@ -263,6 +268,12 @@
                 </div>
             </div>
         </footer>
+        
+        
+        <%	} else {
+			System.out.println("session invalid in the Architect home page you wants to login again");
+			response.sendRedirect("architect_login.jsp");
+		} %>
     </body>
 
     </html>

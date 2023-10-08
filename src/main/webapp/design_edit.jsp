@@ -73,6 +73,10 @@
                     <body>
                         <jsp:include page="header.jsp"></jsp:include>
 
+<%
+		String email = (String) session.getAttribute("loggedInEmail");
+
+if (email != null) { %>
                         <div>
                             <% long uniqueId=Long.parseLong(request.getParameter("uniqueId")); DesignService
                                 designService=new DesignService(); List<Design> listDesigns =
@@ -265,6 +269,11 @@
                                 });
                             });
                         </script>
+                        
+                        	 <%	} else {
+			System.out.println("session invalid in the Architect edit design page you wants to login again");
+			response.sendRedirect("architect_login.jsp");
+		} %>
                     </body>
 
                     </html>
